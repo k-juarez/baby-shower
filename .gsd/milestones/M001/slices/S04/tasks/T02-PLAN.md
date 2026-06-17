@@ -4,7 +4,7 @@ estimated_files: 1
 skills_used: []
 ---
 
-# T02: Fix @theme inline tokens and polish visual coherence
+# T02: Added 12 fixed-color tokens (primary/secondary/tertiary-fixed variants) and shadow-amber/amber to @theme inline in globals.css, resolving Tailwind hover/color classes that had no runtime effect
 
 Why: The MEM013 gotcha documents that `primary-fixed-dim` and other fixed-color tokens are defined on `:root` but absent from the `@theme inline` block in globals.css. As a result, Tailwind classes like `hover:text-primary-fixed-dim` used in CatalogGrid have no runtime effect. S04 is the visual polish slice — this is the right place to add the missing tokens.
 

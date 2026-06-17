@@ -74,6 +74,7 @@
 
   /* Ambient shadow color (amber tint) */
   --color-shadow-amber: rgba(255, 179, 0, 0.08);
+  --color-amber: rgba(255, 179, 0, 0.08);
 }
 
 @theme inline {
@@ -127,6 +128,24 @@
   --color-background: var(--color-background);
   --color-on-background: var(--color-on-background);
   --color-surface-variant: var(--color-surface-variant);
+
+  /* Fixed colors (for hover states and interactive variants) */
+  --color-primary-fixed: var(--color-primary-fixed);
+  --color-primary-fixed-dim: var(--color-primary-fixed-dim);
+  --color-on-primary-fixed: var(--color-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--color-on-primary-fixed-variant);
+  --color-secondary-fixed: var(--color-secondary-fixed);
+  --color-secondary-fixed-dim: var(--color-secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--color-on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--color-on-secondary-fixed-variant);
+  --color-tertiary-fixed: var(--color-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--color-tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--color-on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--color-on-tertiary-fixed-variant);
+
+  /* Shadow colors */
+  --color-shadow-amber: var(--color-shadow-amber);
+  --color-amber: var(--color-amber);
 
   /* Rounded corners */
   --radius-sm: 0.25rem;

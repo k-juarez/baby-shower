@@ -34,7 +34,7 @@ Upstream surfaces consumed: `app/globals.css` (design tokens, honeycomb pattern)
   - Files: `app/page.tsx`
   - Verify: node --test app/__tests__/landing-page.test.ts
 
-- [ ] **T02: Fix @theme inline tokens and polish visual coherence** `est:30m`
+- [x] **T02: Added 12 fixed-color tokens (primary/secondary/tertiary-fixed variants) and shadow-amber/amber to @theme inline in globals.css, resolving Tailwind hover/color classes that had no runtime effect** `est:30m`
   Why: The MEM013 gotcha documents that `primary-fixed-dim` and other fixed-color tokens are defined on `:root` but absent from the `@theme inline` block in globals.css. As a result, Tailwind classes like `hover:text-primary-fixed-dim` used in CatalogGrid have no runtime effect. S04 is the visual polish slice — this is the right place to add the missing tokens.
   - Files: `app/globals.css`
   - Verify: grep -q 'primary-fixed-dim' app/globals.css && grep -q 'primary-fixed:' app/globals.css && npm run build
