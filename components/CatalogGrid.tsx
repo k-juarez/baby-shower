@@ -88,7 +88,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
   return (
     <div className="flex flex-col gap-6">
       {/* Filter toggle — matches Stitch: surface-container-low bg, pill buttons */}
-      <div className="flex w-fit rounded-full bg-surface-container-low p-xs shadow-[0_2px_10px_rgba(255,179,0,0.05)]">
+      <div className="flex w-fit rounded-full bg-surface-container-low p-xs shadow-amber">
         <button
           type="button"
           onClick={() => setFilter("todos")}
@@ -131,7 +131,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
             return (
               <article
                 key={item.id}
-                className={`flex flex-col overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_4px_20px_rgba(255,179,0,0.08)] transition-all duration-300 hover:-translate-y-1 ${
+                className={`flex flex-col overflow-hidden rounded-xl bg-surface-container-lowest shadow-amber transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
                   isReserved ? "opacity-80" : ""
                 }`}
               >

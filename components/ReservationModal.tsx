@@ -235,7 +235,7 @@ export default function ReservationModal({
           <button
             type="button"
             onClick={handleConfirm}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 font-title-md text-title-md text-on-primary shadow-[0_4px_12px_rgba(126,87,0,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-surface-tint active:translate-y-0"
+            className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 font-title-md text-title-md text-on-primary shadow-amber transition-all duration-200 hover:-translate-y-0.5 hover:bg-surface-tint active:translate-y-0"
           >
             Confirmar que lo regalaré
             <span className="material-symbols-outlined text-[20px]">
@@ -288,7 +288,7 @@ export default function ReservationModal({
             href={modalItem.url_elemento ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-xs rounded-full bg-primary py-sm px-md font-label-md text-label-md text-on-primary shadow-sm transition-colors hover:bg-primary-fixed-dim hover:text-on-primary"
+            className="flex w-full items-center justify-center gap-xs rounded-full bg-primary py-sm px-md font-label-md text-label-md text-on-primary shadow-sm transition-colors hover:bg-primary-fixed-dim hover:text-on-primary-fixed"
           >
             <span
               className="material-symbols-outlined"
@@ -301,7 +301,7 @@ export default function ReservationModal({
           <button
             type="button"
             onClick={onClose}
-            className="flex w-full items-center justify-center gap-xs rounded-full bg-secondary-container py-sm px-md font-label-md text-label-md text-on-secondary-container transition-colors hover:bg-secondary hover:text-on-secondary"
+            className="flex w-full items-center justify-center gap-xs rounded-full bg-secondary-container py-sm px-md font-label-md text-label-md text-on-secondary-container transition-colors hover:bg-secondary-fixed-dim hover:text-on-secondary-fixed-variant"
           >
             <span className="material-symbols-outlined">arrow_back</span>
             Volver al catálogo
@@ -362,7 +362,7 @@ export default function ReservationModal({
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-full max-w-[500px] overflow-hidden rounded-[24px] border border-surface-container bg-surface-container-lowest shadow-[0_8px_32px_rgba(255,179,0,0.08)]">
+      <div className="relative w-full max-w-[500px] overflow-hidden rounded-[24px] border border-surface-container bg-surface-container-lowest shadow-amber">
         {/* Honeycomb background */}
         <div
           className="pointer-events-none absolute inset-0 -z-10"
