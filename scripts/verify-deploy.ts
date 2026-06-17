@@ -1,5 +1,5 @@
 /**
- * Production verification script for dulce-espera-natalia.vercel.app.
+ * Production verification script for baby-shower.vercel.app.
  *
  * Checks all public endpoints and the full guest flow:
  *   landing page -> catalog -> API items -> reserve validation -> atomic reservation
