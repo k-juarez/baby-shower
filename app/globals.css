@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/* ── Honey Bee Design Tokens (from stitch-source DESIGN.md) ── */
+
+:root {
+  /* Surface colors */
+  --color-surface: #fbf9f9;
+  --color-surface-dim: #dbdad9;
+  --color-surface-bright: #fbf9f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3f3;
+  --color-surface-container: #efeded;
+  --color-surface-container-high: #e9e8e7;
+  --color-surface-container-highest: #e3e2e2;
+
+  /* On-surface / text */
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #514532;
+  --color-inverse-surface: #303031;
+  --color-inverse-on-surface: #f2f0f0;
+
+  /* Outline */
+  --color-outline: #847560;
+  --color-outline-variant: #d6c4ac;
+  --color-surface-tint: #7e5700;
+
+  /* Primary (Honey/Amber) */
+  --color-primary: #7e5700;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ffb300;
+  --color-on-primary-container: #6b4900;
+  --color-inverse-primary: #ffba38;
+
+  /* Secondary (Pastel Yellow) */
+  --color-secondary: #636037;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #e7e1ae;
+  --color-on-secondary-container: #67643b;
+
+  /* Tertiary (Olive/Beige) */
+  --color-tertiary: #5e604d;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #c2c3ac;
+  --color-on-tertiary-container: #4f503e;
+
+  /* Error */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Primary fixed */
+  --color-primary-fixed: #ffdeac;
+  --color-primary-fixed-dim: #ffba38;
+  --color-on-primary-fixed: #281900;
+  --color-on-primary-fixed-variant: #604100;
+
+  /* Secondary fixed */
+  --color-secondary-fixed: #eae4b1;
+  --color-secondary-fixed-dim: #cdc897;
+  --color-on-secondary-fixed: #1e1c00;
+  --color-on-secondary-fixed-variant: #4b4822;
+
+  /* Tertiary fixed */
+  --color-tertiary-fixed: #e4e4cc;
+  --color-tertiary-fixed-dim: #c8c8b0;
+  --color-on-tertiary-fixed: #1b1d0e;
+  --color-on-tertiary-fixed-variant: #474836;
+
+  /* Aliases */
+  --color-background: #fbf9f9;
+  --color-on-background: #1b1c1c;
+  --color-surface-variant: #e3e2e2;
+
+  /* Ambient shadow color (amber tint) */
+  --color-shadow-amber: rgba(255, 179, 0, 0.08);
+  --color-amber: rgba(255, 179, 0, 0.08);
+}
+
+@theme inline {
+  /* Surface palette */
+  --color-surface: var(--color-surface);
+  --color-surface-dim: var(--color-surface-dim);
+  --color-surface-bright: var(--color-surface-bright);
+  --color-surface-container-lowest: var(--color-surface-container-lowest);
+  --color-surface-container-low: var(--color-surface-container-low);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-highest: var(--color-surface-container-highest);
+
+  /* On-surface */
+  --color-on-surface: var(--color-on-surface);
+  --color-on-surface-variant: var(--color-on-surface-variant);
+  --color-inverse-surface: var(--color-inverse-surface);
+  --color-inverse-on-surface: var(--color-inverse-on-surface);
+
+  /* Outline */
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+  --color-surface-tint: var(--color-surface-tint);
+
+  /* Primary */
+  --color-primary: var(--color-primary);
+  --color-on-primary: var(--color-on-primary);
+  --color-primary-container: var(--color-primary-container);
+  --color-on-primary-container: var(--color-on-primary-container);
+  --color-inverse-primary: var(--color-inverse-primary);
+
+  /* Secondary */
+  --color-secondary: var(--color-secondary);
+  --color-on-secondary: var(--color-on-secondary);
+  --color-secondary-container: var(--color-secondary-container);
+  --color-on-secondary-container: var(--color-on-secondary-container);
+
+  /* Tertiary */
+  --color-tertiary: var(--color-tertiary);
+  --color-on-tertiary: var(--color-on-tertiary);
+  --color-tertiary-container: var(--color-tertiary-container);
+  --color-on-tertiary-container: var(--color-on-tertiary-container);
+
+  /* Error */
+  --color-error: var(--color-error);
+  --color-on-error: var(--color-on-error);
+  --color-error-container: var(--color-error-container);
+  --color-on-error-container: var(--color-on-error-container);
+
+  /* Background aliases */
+  --color-background: var(--color-background);
+  --color-on-background: var(--color-on-background);
+  --color-surface-variant: var(--color-surface-variant);
+
+  /* Fixed colors (for hover states and interactive variants) */
+  --color-primary-fixed: var(--color-primary-fixed);
+  --color-primary-fixed-dim: var(--color-primary-fixed-dim);
+  --color-on-primary-fixed: var(--color-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--color-on-primary-fixed-variant);
+  --color-secondary-fixed: var(--color-secondary-fixed);
+  --color-secondary-fixed-dim: var(--color-secondary-fixed-dim);
+  --color-on-secondary-fixed: var(--color-on-secondary-fixed);
+  --color-on-secondary-fixed-variant: var(--color-on-secondary-fixed-variant);
+  --color-tertiary-fixed: var(--color-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--color-tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--color-on-tertiary-fixed);
+  --color-on-tertiary-fixed-variant: var(--color-on-tertiary-fixed-variant);
+
+  /* Shadow colors */
+  --color-shadow-amber: var(--color-shadow-amber);
+  --color-amber: var(--color-amber);
+
+  /* Rounded corners */
+  --radius-sm: 0.25rem;
+  --radius-default: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Typography - assigned in layout via CSS variables */
+  --font-sans: "Open Sans", sans-serif;
+  --font-display: "Quicksand", sans-serif;
+
+  /* Spacing */
+  --spacing-base: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 12px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+  --spacing-container-max: 1200px;
+  --spacing-gutter: 24px;
+}
+
+/* ── Base styles ── */
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Honeycomb pattern utility ── */
+.bg-honeycomb {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 28 49'%3E%3Cpath fill='%23f5f5dc' fill-opacity='0.4' d='M13.99 9.25l13 7.5v15l-13 7.5-13-7.5v-15l13-7.5zM28 25v-8.5l-14.01-8.5L0 16.5V25l14 8.5 14-8.5z'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "projectStartedAt": 1781733062837,
+  "units": [
+    {
+      "type": "plan-slice",
+      "id": "M001/S01",
+      "model": "deepseek/deepseek-v4-pro",
+      "startedAt": 1781733064512,
+      "finishedAt": 1781733165030,
+      "autoSessionKey": "1781733062727",
+      "tokens": {
+        "input": 58686,
+        "output": 8720,
+        "cacheRead": 566400,
+        "cacheWrite": 0,
+        "total": 633806
+      },
+      "cost": 0,
+      "toolCalls": 25,
+      "assistantMessages": 12,
+      "userMessages": 0,
+      "apiRequests": 12,
+      "promptCharCount": 25278,
+      "baselineCharCount": 10559,
+      "skills": [
+        "api-design",
+        "decompose-into-slices",
+        "design-an-interface",
+        "grill-me",
+        "tdd",
+        "verify-before-complete",
+        "write-docs"
+      ],
+      "cacheHitRate": 91,
+      "compressionSavings": 0
+    }
+  ]
+}
