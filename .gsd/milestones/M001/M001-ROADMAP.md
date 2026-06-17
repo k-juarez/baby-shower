@@ -22,7 +22,7 @@
 - [x] **S03: Reserva atómica y confirmación** `risk:high` `depends:[S02]`
   > After this: Clicking 'Yo lo regalo' on any Disponible item opens a modal. Guest enters name, confirms, and the reservation is atomic (conditional UPDATE). Confirmation screen shows thank-you message and link to store.
 
-- [ ] **S04: Landing page y pulido visual** `risk:low` `depends:[S02]`
+- [x] **S04: Landing page y pulido visual** `risk:low` `depends:[S02]`
   > After this: Landing page at `/` with warm welcome message, bee illustrations/icons, 'Ver catálogo de regalos' CTA button. All 4 screens visually cohesive with bee theme, pastel colors, rounded corners, Google Fonts.
 
 - [ ] **S05: Deploy a Vercel** `risk:medium` `depends:[S03,S04]`

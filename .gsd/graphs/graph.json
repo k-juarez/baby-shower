@@ -75,6 +75,25 @@
       "label": "T02: Built ReservationModal with four-state UI machine and wired Yo lo regalo button into CatalogGrid cards, with 18 passing negative tests and zero-error build",
       "type": "task",
       "confidence": "EXTRACTED"
+    },
+    {
+      "id": "slice:M001:S04",
+      "label": "S04: Landing page y pulido visual",
+      "type": "slice",
+      "confidence": "EXTRACTED",
+      "sourceFile": "milestones/M001/slices/S04/S04-PLAN.md"
+    },
+    {
+      "id": "task:M001:S04:T01",
+      "label": "T01: Built bee-themed landing page at / with hero, CTA button, three-step guide, and warm footer — all 14 content checks pass",
+      "type": "task",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "id": "task:M001:S04:T02",
+      "label": "T02: Added 12 fixed-color tokens (primary/secondary/tertiary-fixed variants) and shadow-amber/amber to @theme inline in globals.css, resolving Tailwind hover/color classes that had no runtime effect",
+      "type": "task",
+      "confidence": "EXTRACTED"
     }
   ],
   "edges": [
@@ -143,7 +162,25 @@
       "to": "task:M001:S03:T02",
       "type": "contains",
       "confidence": "EXTRACTED"
+    },
+    {
+      "from": "milestone:M001",
+      "to": "slice:M001:S04",
+      "type": "contains",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "from": "slice:M001:S04",
+      "to": "task:M001:S04:T01",
+      "type": "contains",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "from": "slice:M001:S04",
+      "to": "task:M001:S04:T02",
+      "type": "contains",
+      "confidence": "EXTRACTED"
     }
   ],
-  "builtAt": "2026-06-17T22:52:03.629Z"
+  "builtAt": "2026-06-17T22:58:59.421Z"
 }
