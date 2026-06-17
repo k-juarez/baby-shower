@@ -13,7 +13,7 @@
 
 ## Slices
 
-- [ ] **S01: Scaffold, DB schema, and Notion seed** `risk:medium` `depends:[]`
+- [x] **S01: Scaffold, DB schema, and Notion seed** `risk:medium` `depends:[]`
   > After this: Next.js project initialized with Tailwind, Neon Postgres connected, schema created, and ~32 items seeded from Notion. Can query items via API route.
 
 - [ ] **S02: Catálogo de regalos con datos reales** `risk:medium` `depends:[S01]`

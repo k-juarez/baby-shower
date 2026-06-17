@@ -42,7 +42,7 @@ API surface (GET /api/items) established for downstream slices. No UI wiring yet
   - Files: `scripts/seed-from-notion.ts`, `package.json`
   - Verify: test -f scripts/seed-from-notion.ts
 
-- [ ] **T04: Create GET /api/items API route** `est:15m`
+- [x] **T04: Created GET /api/items API route that queries all items from Neon Postgres and returns them as JSON, with try/catch error handling returning 500 on failure.** `est:15m`
   Create a Next.js App Router API route that returns all items from the database as JSON.
   - Files: `app/api/items/route.ts`
   - Verify: test -f app/api/items/route.ts

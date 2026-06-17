@@ -4,7 +4,7 @@ estimated_files: 1
 skills_used: []
 ---
 
-# T04: Create GET /api/items API route
+# T04: Created GET /api/items API route that queries all items from Neon Postgres and returns them as JSON, with try/catch error handling returning 500 on failure.
 
 Create a Next.js App Router API route that returns all items from the database as JSON.
 
