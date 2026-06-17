@@ -39,7 +39,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="flex min-h-full flex-col pb-xl md:pb-0 font-body-md text-on-surface">
+      <body className="flex min-h-full flex-col font-body-md text-on-surface">
         <NavBar />
         <main className="flex flex-1 flex-col">{children}</main>
         <Footer />
