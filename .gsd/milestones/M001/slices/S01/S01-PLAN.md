@@ -27,12 +27,12 @@ API surface (GET /api/items) established for downstream slices. No UI wiring yet
 
 ## Tasks
 
-- [ ] **T01: Initialize Next.js with Tailwind and bee-theme design tokens** `est:30m`
+- [x] **T01: Next.js 16 project scaffolded with Tailwind v4, Honey Bee design tokens from DESIGN.md, Quicksand/Open Sans via next/font/google, and minimal placeholder page.** `est:30m`
   Scaffold the Next.js project with TypeScript, Tailwind CSS v4, and the App Router. Configure the Honey Bee design tokens from the stitch-source DESIGN.md into the Tailwind config, load Quicksand and Open Sans via next/font/google, and create the root layout with font loading and global CSS variables.
   - Files: `package.json`, `tsconfig.json`, `tailwind.config.ts`, `app/layout.tsx`, `app/globals.css`, `app/page.tsx`, `next.config.ts`, `postcss.config.mjs`
   - Verify: npm run build
 
-- [ ] **T02: Set up Neon Postgres connection and schema** `est:20m`
+- [x] **T02: Installed @neondatabase/serverless and dotenv, created lib/db.ts with Neon sql helper, lib/schema.sql with items table (8 columns), and .env.example documenting required env vars.** `est:20m`
   Install the Neon serverless driver, create the database utility module, define the items table schema, and provide environment variable templates.
   - Files: `lib/db.ts`, `lib/schema.sql`, `.env.example`, `package.json`
   - Verify: test -f lib/db.ts

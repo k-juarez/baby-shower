@@ -4,7 +4,7 @@ estimated_files: 4
 skills_used: []
 ---
 
-# T02: Set up Neon Postgres connection and schema
+# T02: Installed @neondatabase/serverless and dotenv, created lib/db.ts with Neon sql helper, lib/schema.sql with items table (8 columns), and .env.example documenting required env vars.
 
 Install the Neon serverless driver, create the database utility module, define the items table schema, and provide environment variable templates.
 

@@ -4,7 +4,7 @@ estimated_files: 8
 skills_used: []
 ---
 
-# T01: Initialize Next.js with Tailwind and bee-theme design tokens
+# T01: Next.js 16 project scaffolded with Tailwind v4, Honey Bee design tokens from DESIGN.md, Quicksand/Open Sans via next/font/google, and minimal placeholder page.
 
 Scaffold the Next.js project with TypeScript, Tailwind CSS v4, and the App Router. Configure the Honey Bee design tokens from the stitch-source DESIGN.md into the Tailwind config, load Quicksand and Open Sans via next/font/google, and create the root layout with font loading and global CSS variables.
 
