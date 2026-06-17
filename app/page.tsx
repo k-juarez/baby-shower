@@ -67,7 +67,7 @@ export default function HomePage() {
 
           <Link
             href="/catalogo"
-            className="inline-block rounded-full bg-primary px-8 py-3 text-lg font-semibold text-on-primary shadow-lg transition-all hover:bg-primary-fixed-dim hover:shadow-xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="inline-block rounded-full bg-primary px-8 py-3 text-lg font-semibold text-on-primary shadow-lg transition-all hover:bg-primary-fixed-dim hover:text-on-primary-fixed hover:shadow-xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Ver catálogo de regalos 🎀

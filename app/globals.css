@@ -1,47 +1,47 @@
 @import "tailwindcss";
 
-/* ── Honey Bee Design Tokens (from stitch-source DESIGN.md) ── */
+/* ── Miel Suave — Baby Shower de Natalia 🐝🍯 ── */
 
 :root {
-  /* Surface colors */
-  --color-surface: #fbf9f9;
-  --color-surface-dim: #dbdad9;
-  --color-surface-bright: #fbf9f9;
+  /* Surface colors (warm white series) */
+  --color-surface: #fefaf5;
+  --color-surface-dim: #ddd8d2;
+  --color-surface-bright: #fefaf5;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f5f3f3;
-  --color-surface-container: #efeded;
-  --color-surface-container-high: #e9e8e7;
-  --color-surface-container-highest: #e3e2e2;
+  --color-surface-container-low: #f5f1ec;
+  --color-surface-container: #f0ebe5;
+  --color-surface-container-high: #eae5df;
+  --color-surface-container-highest: #e4dfd9;
 
   /* On-surface / text */
-  --color-on-surface: #1b1c1c;
-  --color-on-surface-variant: #514532;
-  --color-inverse-surface: #303031;
-  --color-inverse-on-surface: #f2f0f0;
+  --color-on-surface: #1f1b16;
+  --color-on-surface-variant: #5c4a3a;
+  --color-inverse-surface: #302a24;
+  --color-inverse-on-surface: #f2ede8;
 
   /* Outline */
-  --color-outline: #847560;
-  --color-outline-variant: #d6c4ac;
-  --color-surface-tint: #7e5700;
+  --color-outline: #8a7560;
+  --color-outline-variant: #d6ccb8;
+  --color-surface-tint: #b07810;
 
-  /* Primary (Honey/Amber) */
-  --color-primary: #7e5700;
+  /* Primary (Honey Gold) */
+  --color-primary: #b07810;
   --color-on-primary: #ffffff;
-  --color-primary-container: #ffb300;
-  --color-on-primary-container: #6b4900;
-  --color-inverse-primary: #ffba38;
+  --color-primary-container: #fde0a4;
+  --color-on-primary-container: #5c3a00;
+  --color-inverse-primary: #f0c878;
 
-  /* Secondary (Pastel Yellow) */
-  --color-secondary: #636037;
+  /* Secondary (Warm Tan) */
+  --color-secondary: #8a6a3a;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #e7e1ae;
-  --color-on-secondary-container: #67643b;
+  --color-secondary-container: #f5e6cc;
+  --color-on-secondary-container: #5a3a10;
 
-  /* Tertiary (Olive/Beige) */
-  --color-tertiary: #5e604d;
+  /* Tertiary (Soft Rose) */
+  --color-tertiary: #8a4a5a;
   --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #c2c3ac;
-  --color-on-tertiary-container: #4f503e;
+  --color-tertiary-container: #f0d4dc;
+  --color-on-tertiary-container: #5a2a3a;
 
   /* Error */
   --color-error: #ba1a1a;
@@ -50,31 +50,31 @@
   --color-on-error-container: #93000a;
 
   /* Primary fixed */
-  --color-primary-fixed: #ffdeac;
-  --color-primary-fixed-dim: #ffba38;
-  --color-on-primary-fixed: #281900;
-  --color-on-primary-fixed-variant: #604100;
+  --color-primary-fixed: #fde0a4;
+  --color-primary-fixed-dim: #f0c878;
+  --color-on-primary-fixed: #2d1800;
+  --color-on-primary-fixed-variant: #5c3a00;
 
   /* Secondary fixed */
-  --color-secondary-fixed: #eae4b1;
-  --color-secondary-fixed-dim: #cdc897;
-  --color-on-secondary-fixed: #1e1c00;
-  --color-on-secondary-fixed-variant: #4b4822;
+  --color-secondary-fixed: #f5e6cc;
+  --color-secondary-fixed-dim: #e0cca8;
+  --color-on-secondary-fixed: #1f1500;
+  --color-on-secondary-fixed-variant: #5a3a10;
 
   /* Tertiary fixed */
-  --color-tertiary-fixed: #e4e4cc;
-  --color-tertiary-fixed-dim: #c8c8b0;
-  --color-on-tertiary-fixed: #1b1d0e;
-  --color-on-tertiary-fixed-variant: #474836;
+  --color-tertiary-fixed: #f5dce4;
+  --color-tertiary-fixed-dim: #e8c8d4;
+  --color-on-tertiary-fixed: #2d0a15;
+  --color-on-tertiary-fixed-variant: #5a2a3a;
 
   /* Aliases */
-  --color-background: #fbf9f9;
-  --color-on-background: #1b1c1c;
-  --color-surface-variant: #e3e2e2;
+  --color-background: #fefaf5;
+  --color-on-background: #1f1b16;
+  --color-surface-variant: #e4dfd9;
 
-  /* Ambient shadow color (amber tint) */
-  --color-shadow-amber: rgba(255, 179, 0, 0.08);
-  --color-amber: rgba(255, 179, 0, 0.08);
+  /* Ambient shadow color (honey tint) */
+  --color-shadow-amber: rgba(176, 120, 16, 0.08);
+  --color-amber: rgba(176, 120, 16, 0.08);
 }
 
 @theme inline {
@@ -129,7 +129,7 @@
   --color-on-background: var(--color-on-background);
   --color-surface-variant: var(--color-surface-variant);
 
-  /* Fixed colors (for hover states and interactive variants) */
+  /* Fixed colors */
   --color-primary-fixed: var(--color-primary-fixed);
   --color-primary-fixed-dim: var(--color-primary-fixed-dim);
   --color-on-primary-fixed: var(--color-on-primary-fixed);
@@ -155,7 +155,7 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Typography - assigned in layout via CSS variables */
+  /* Typography */
   --font-sans: "Open Sans", sans-serif;
   --font-display: "Quicksand", sans-serif;
 
