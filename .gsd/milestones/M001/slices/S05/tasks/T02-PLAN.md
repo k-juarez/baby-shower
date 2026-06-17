@@ -4,7 +4,7 @@ estimated_files: 1
 skills_used: []
 ---
 
-# T02: Deploy to production and verify full guest flow
+# T02: Seeded 32 catalog items from Notion baby shower registry into production Neon database
 
 Why: This is the final assembly task — deploy the app to Vercel production and verify the complete guest flow works on the public internet, proving the milestone is truly done.
 

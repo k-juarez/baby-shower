@@ -40,7 +40,7 @@ This is the final assembly slice — after deploy, the milestone is truly usable
   - Files: `package.json`
   - Verify: npm run build
 
-- [ ] **T02: Deploy to production and verify full guest flow** `est:30m`
+- [x] **T02: Seeded 32 catalog items from Notion baby shower registry into production Neon database** `est:30m`
   Why: This is the final assembly task — deploy the app to Vercel production and verify the complete guest flow works on the public internet, proving the milestone is truly done.
   - Files: `scripts/verify-deploy.ts`
   - Verify: npx tsx scripts/verify-deploy.ts

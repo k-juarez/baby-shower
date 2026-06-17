@@ -25,7 +25,7 @@
 - [x] **S04: Landing page y pulido visual** `risk:low` `depends:[S02]`
   > After this: Landing page at `/` with warm welcome message, bee illustrations/icons, 'Ver catálogo de regalos' CTA button. All 4 screens visually cohesive with bee theme, pastel colors, rounded corners, Google Fonts.
 
-- [ ] **S05: Deploy a Vercel** `risk:medium` `depends:[S03,S04]`
+- [x] **S05: Deploy a Vercel** `risk:medium` `depends:[S03,S04]`
   > After this: Site live at dulce-espera-natalia.vercel.app. Full guest flow works in production: landing → catalog → reserve → confirmation → store redirect.
 
 ## Boundary Map

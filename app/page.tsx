@@ -110,15 +110,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Footer message */}
-      <footer className="bg-primary-container/30 border-t border-outline-variant/30 py-8 text-center">
-        <p
-          className="text-lg text-on-primary-container"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          Con cariño, para la llegada de Natalia 💛
-        </p>
-      </footer>
+
     </div>
   );
 }

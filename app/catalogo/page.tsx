@@ -1,57 +1,58 @@
-import type { Metadata } from "next";
-import { sql } from "@/lib/db";
-import CatalogGrid from "@/components/CatalogGrid";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Mesa de Regalos — Baby Shower de Natalia",
-  description:
-    "Elige un regalo especial para la llegada de Natalia desde nuestra mesa de regalos.",
-};
+import { useEffect, useState } from "react";
+import CatalogGrid, { type CatalogItem } from "@/components/CatalogGrid";
 
-interface Item {
-  id: number;
-  nombre: string;
-  que_es: string;
-  url_imagen: string | null;
-  url_elemento: string | null;
-  estado: string;
-}
+export default function CatalogoPage() {
+  const [items, setItems] = useState<CatalogItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function CatalogoPage() {
-  let items: Item[] = [];
-
-  try {
-    const rows = await sql`SELECT * FROM items ORDER BY id`;
-    items = rows as unknown as Item[];
-  } catch {
-    // Database error — rendered as empty state below
-  }
+  useEffect(() => {
+    fetch("/api/items")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.items) {
+          setItems(data.items);
+        }
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
 
   return (
     <div className="flex flex-1 flex-col">
-      {/* Honeycomb header */}
-      <div className="bg-honeycomb border-b border-outline-variant/40">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-4 px-6 py-12 text-center sm:py-16">
-          <h1
-            className="text-4xl font-bold tracking-tight text-primary sm:text-5xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            🐝 Mesa de Regalos
-          </h1>
-          <p
-            className="max-w-xl text-on-surface-variant sm:text-lg"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
-            Con todo nuestro cariño, hemos preparado esta mesa de regalos para
-            la llegada de Natalia. Elige el regalo que más te guste y ayúdanos
-            a hacer de su llegada algo inolvidable. 💛
-          </p>
-        </div>
+      {/* Honeycomb decorative header background */}
+      <div className="relative w-full">
+        <div className="absolute top-0 left-0 h-64 w-full -z-10 bg-honeycomb rounded-b-full" />
       </div>
 
-      {/* Catalog content */}
-      <div className="mx-auto w-full max-w-[1200px] flex-1 px-6 py-8">
-        {items.length === 0 ? (
+      {/* Header & Filters */}
+      <div className="mx-auto w-full max-w-[1200px] flex-1 px-md md:px-gutter py-xl">
+        <div className="mb-lg flex flex-col items-start gap-md md:flex-row md:items-end md:justify-between">
+          <div>
+            <h1 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-xs flex items-center gap-xs text-primary">
+              <span
+                className="material-symbols-outlined text-primary-container"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                hive
+              </span>
+              Mesa de Regalos
+            </h1>
+            <p className="font-body-md text-body-md max-w-2xl text-on-surface-variant">
+              Ayúdanos a preparar la llegada de nuestra abejita. Hemos
+              seleccionado con mucho amor estos artículos esenciales.
+            </p>
+          </div>
+        </div>
+
+        {/* Content */}
+        {loading ? (
+          <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
+            <div className="flex h-12 w-12 animate-spin items-center justify-center rounded-full border-4 border-primary-container border-t-primary" />
+            <p className="text-on-surface-variant">Cargando regalos...</p>
+          </div>
+        ) : items.length === 0 ? (
           <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
             <span className="text-5xl">🐝✨</span>
             <h2
