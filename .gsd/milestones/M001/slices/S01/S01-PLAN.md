@@ -37,7 +37,7 @@ API surface (GET /api/items) established for downstream slices. No UI wiring yet
   - Files: `lib/db.ts`, `lib/schema.sql`, `.env.example`, `package.json`
   - Verify: test -f lib/db.ts
 
-- [ ] **T03: Create Notion seed script** `est:30m`
+- [x] **T03: Created Notion seed script (scripts/seed-from-notion.ts) using @notionhq/client v5 dataSources.query API, with graceful error handling, per-item skip, and a package.json seed script entry.** `est:30m`
   Build a standalone TypeScript seed script that fetches ~32 gift items from the Notion database and inserts them into the Neon items table.
   - Files: `scripts/seed-from-notion.ts`, `package.json`
   - Verify: test -f scripts/seed-from-notion.ts

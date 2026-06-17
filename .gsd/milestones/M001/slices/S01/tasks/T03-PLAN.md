@@ -4,7 +4,7 @@ estimated_files: 2
 skills_used: []
 ---
 
-# T03: Create Notion seed script
+# T03: Created Notion seed script (scripts/seed-from-notion.ts) using @notionhq/client v5 dataSources.query API, with graceful error handling, per-item skip, and a package.json seed script entry.
 
 Build a standalone TypeScript seed script that fetches ~32 gift items from the Notion database and inserts them into the Neon items table.
 
