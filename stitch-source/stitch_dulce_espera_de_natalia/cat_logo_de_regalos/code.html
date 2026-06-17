@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mesa de Regalos - Natalia Juárez</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Quicksand:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#d6c4ac",
+                        "tertiary-container": "#c2c3ac",
+                        "on-primary-fixed-variant": "#604100",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#303031",
+                        "secondary": "#636037",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#6b4900",
+                        "surface-container": "#efeded",
+                        "surface-bright": "#fbf9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#cdc897",
+                        "inverse-primary": "#ffba38",
+                        "surface-tint": "#7e5700",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-dim": "#dbdad9",
+                        "primary": "#7e5700",
+                        "primary-container": "#ffb300",
+                        "on-tertiary-fixed": "#1b1d0e",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "primary-fixed-dim": "#ffba38",
+                        "on-secondary-container": "#67643b",
+                        "background": "#fbf9f9",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "secondary-container": "#e7e1ae",
+                        "secondary-fixed": "#eae4b1",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#281900",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "surface": "#fbf9f9",
+                        "on-surface": "#1b1c1c",
+                        "on-background": "#1b1c1c",
+                        "on-primary": "#ffffff",
+                        "outline": "#847560",
+                        "surface-container-highest": "#e3e2e2",
+                        "tertiary": "#5e604d",
+                        "on-tertiary-container": "#4f503e",
+                        "surface-variant": "#e3e2e2",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-surface-variant": "#514532",
+                        "on-secondary-fixed-variant": "#4b4822",
+                        "primary-fixed": "#ffdeac",
+                        "tertiary-fixed": "#e4e4cc",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#1e1c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xs": "4px",
+                        "container-max": "1200px",
+                        "xl": "80px",
+                        "gutter": "24px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Quicksand"],
+                        "body-lg": ["Open Sans"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "body-md": ["Open Sans"],
+                        "label-md": ["Quicksand"],
+                        "display-lg": ["Quicksand"],
+                        "headline-lg": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            font-family: 'Open Sans', sans-serif;
+        }
+        .honeycomb-pattern {
+            background-image: radial-gradient(theme('colors.secondary-container') 2px, transparent 2px);
+            background-size: 24px 24px;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative pb-xl md:pb-0">
+<!-- TopNavBar (Hidden on Mobile) -->
+<nav class="hidden md:flex bg-surface shadow-sm sticky top-0 z-40">
+<div class="flex justify-between items-center px-md py-sm max-w-container-max mx-auto w-full">
+<div class="font-display-lg text-display-lg text-primary">
+                Natalia Juárez
+            </div>
+<div class="flex gap-md items-center">
+<a class="font-title-md text-title-md text-primary border-b-2 border-primary pb-1" href="#">Mesa de Regalos</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" href="#">Nuestra Historia</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors" href="#">Cómo Apartar</a>
+</div>
+<div class="flex gap-sm">
+<button class="text-primary hover:bg-secondary-container transition-colors p-2 rounded-full scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="text-primary hover:bg-secondary-container transition-colors p-2 rounded-full scale-95 duration-200 ease-in-out">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-gutter py-xl relative">
+<!-- Decorative Header Background -->
+<div class="absolute top-0 left-0 w-full h-64 honeycomb-pattern -z-10 rounded-b-full"></div>
+<!-- Header & Filters -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-lg gap-md">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-xs flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">hive</span>
+                    Mesa de Regalos
+                </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                    Ayúdanos a preparar la llegada de nuestra abejita. Hemos seleccionado con mucho amor estos artículos esenciales.
+                </p>
+</div>
+<!-- Tabs/Filters -->
+<div class="flex bg-surface-container-low p-xs rounded-full shadow-[0_2px_10px_rgba(255,179,0,0.05)]">
+<button class="px-md py-sm rounded-full bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm transition-all">
+                    Todos
+                </button>
+<button class="px-md py-sm rounded-full text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-lowest/50 transition-all">
+                    Disponibles
+                </button>
+</div>
+</div>
+<!-- Gift Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter lg:gap-lg">
+<!-- Card 1: Disponible -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(255,179,0,0.08)] flex flex-col transition-transform hover:-translate-y-1 duration-300">
+<div class="relative h-64 w-full bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A soft, high-key photograph of a modern, minimalist baby crib made of light natural wood. The crib is placed in a bright, airy nursery with cream walls and soft sunlight streaming in. The style is tender and warm, adhering to a light mode aesthetic with subtle amber and beige undertones, evoking a sense of calm and tactile sweetness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCQIkid-dnlbilGy7asSucyU5AkLKDdm0-llWPAaWckHzrmZcoHnk9Cu_IAbdeEmdN2YiBWCxbpWDoPQb5j-VgUINjaFuCd_mZqL7lxoVHtyDyydYamYWf9tGj0NTbQxWh9acB_chUXOTEq3KNvo9fYVciKHH6F4uHNEBCMV3Da-gvYbM5Drvg9kAFRw6F1es0d1pfwkETHztv3gLlB8xlP8-0OE_L5aTtTfa2SaUN_KTCjET8UKXTmP0uLY2LIzHeqAotUQxn2JA"/>
+<div class="absolute top-sm right-sm bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                        Disponible
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Cuna Convertible</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                        Cuna de madera natural, estilo minimalista que crece con el bebé. Esencial para su descanso.
+                    </p>
+<div class="flex flex-col gap-sm mt-auto">
+<button class="w-full py-sm bg-primary text-on-primary rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+                            Yo lo regalo
+                        </button>
+<a class="w-full py-sm text-center text-primary font-label-md text-label-md hover:underline" href="#">
+                            Ver en la tienda
+                        </a>
+</div>
+</div>
+</article>
+<!-- Card 2: Apartado -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(255,179,0,0.05)] flex flex-col opacity-80">
+<div class="relative h-64 w-full bg-surface-container grayscale-[20%]">
+<img class="w-full h-full object-cover" data-alt="A gentle, high-quality image of a set of organic cotton baby onesies in neutral tones (cream, soft yellow, light grey) folded neatly. The lighting is soft and diffused, creating a serene and pure atmosphere typical of a high-end nursery catalog. The aesthetic relies on warm whites and soft shadows to communicate tactile softness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3xwIZ_m6MXORdhqEchSHV2wZlknJmjXYMdtW7axrq5xWL5qnoWK03MH9cVe9y_cm5Ic06x3ftzvoyGsd6UXDlUuCmd69_Jb0irtXn-wiXeB1yUhPJHFRTVFh3BF5VaZzLyqtBQ6qJ6UUl2TIlSptizLbbvMrbIgp3aDLfZbm4HuTdG1orNIkbIFowsueyVZ9ktv-EmVQKu3cP6zSFAHsmjDy--qqh5x58oQM3xzrmDW1XfFrSMnnNorlbEcn9kVbIG1tkMu0eGPY"/>
+<div class="absolute top-sm right-sm bg-tertiary-container text-on-tertiary-container font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                        Apartado
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-title-md text-title-md text-on-surface mb-xs text-on-surface/70">Set de Mamelucos Orgánicos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow text-on-surface-variant/80">
+                        Paquete de 5 mamelucos de algodón orgánico supersuave en tonos neutros. Talla 0-3 meses.
+                    </p>
+<div class="flex flex-col gap-sm mt-auto">
+<button class="w-full py-sm bg-surface-variant text-on-surface-variant rounded-full font-label-md text-label-md cursor-not-allowed flex justify-center items-center gap-xs" disabled="">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+                            Regalado con amor
+                        </button>
+<a class="w-full py-sm text-center text-on-surface-variant font-label-md text-label-md hover:underline opacity-70" href="#">
+                            Ver en la tienda
+                        </a>
+</div>
+</div>
+</article>
+<!-- Card 3: Disponible -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(255,179,0,0.08)] flex flex-col transition-transform hover:-translate-y-1 duration-300">
+<div class="relative h-64 w-full bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A bright, clean photograph of a modern baby stroller in a soft beige color, positioned against a plain cream background. The stroller has sleek, rounded geometries and looks premium and comfortable. The lighting is bright and even, highlighting the soft textures of the fabric and avoiding harsh shadows, fitting a warm, inviting theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDbnCZWxkSoYQqDGWP5oEvD1yat8DFuiu5v4nnGvhFwGi735jaey0Ez2zQbif8UELvpjLU8IsI4COLd119OxQwa5aBJnk1rzbOaJsF-3UrBNceNGg6Zvmp7JBO4dXSG9IXRIWYA05T3XfGyZHJgswxfLleXHpKgWb7j1xW5BD_hI_Wquaa7J8zkFUczlZHqUn1hAwmF3VYneZJD-52OgENdx7gwKX5TFnUs2tNd06CxPeqH_RIUjgYsBGUL676TMFcP5JoBcEQ-d4"/>
+<div class="absolute top-sm right-sm bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                        Disponible
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Carriola Todo Terreno</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                        Ligera, fácil de plegar y perfecta para paseos seguros por cualquier parque o calle.
+                    </p>
+<div class="flex flex-col gap-sm mt-auto">
+<button class="w-full py-sm bg-primary text-on-primary rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+                            Yo lo regalo
+                        </button>
+<a class="w-full py-sm text-center text-primary font-label-md text-label-md hover:underline" href="#">
+                            Ver en la tienda
+                        </a>
+</div>
+</div>
+</article>
+<!-- Card 4: Disponible -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(255,179,0,0.08)] flex flex-col transition-transform hover:-translate-y-1 duration-300">
+<div class="relative h-64 w-full bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A delicate, brightly lit photograph of a baby monitor and a cute, honey-bee shaped nightlight resting on a white wooden shelf. The background is a soft, blurred nursery setting. The image exudes a sense of security and warmth, utilizing a soft minimalism style with light beige and warm white tones, ensuring a calm aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbOEG8lMQQHaGYaIBQDZJkW6hLu3qNx2njcLKssGg7mY0T0g1u5IspMcswhwa4WlaI_JHvsJCmPpE84_PwwT3KDKm-oEFA9GMscgba_ZHbFMXgeESCBz2llnuIEwQKxtXiaylmNljyz-aT3_BocKDQ0LBLgG_mSXIzQ-8HyTw231OUaA5HDdljej0zXibEjgtCt919u4V2c6utsmBIGH5qYpb95cNCpUCJrXzoaIJ4UcF_rSmwIXwZeYsn5886_YItcOK9jz_iqbQ"/>
+<div class="absolute top-sm right-sm bg-primary-container text-on-primary-container font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                        Disponible
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-title-md text-title-md text-on-surface mb-xs">Monitor Inteligente HD</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                        Monitor con cámara nocturna y sensor de temperatura para estar siempre tranquilos.
+                    </p>
+<div class="flex flex-col gap-sm mt-auto">
+<button class="w-full py-sm bg-primary text-on-primary rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+                            Yo lo regalo
+                        </button>
+<a class="w-full py-sm text-center text-primary font-label-md text-label-md hover:underline" href="#">
+                            Ver en la tienda
+                        </a>
+</div>
+</div>
+</article>
+<!-- Card 5: Apartado -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(255,179,0,0.05)] flex flex-col opacity-80">
+<div class="relative h-64 w-full bg-surface-container grayscale-[20%]">
+<img class="w-full h-full object-cover" data-alt="A comforting image of a baby bathtub filled with a few floating wooden bath toys and a soft sponge. The setting is clean, bright, and spa-like, featuring smooth, rounded edges and a palette of warm whites and gentle creams. The lighting is soft and inviting, emphasizing cleanliness and tactile softness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBROyzHvdm_CEQ8voMAy2qoPlNCPBPw7Guv1MAf-vce1gOOrJdHpPDhtuiPqrnVrz4mnZfQoT-M9BQa-um_sARW1D1etRPpp511n4dbbSxe3uxVtun-G2Ebqa8rCmAc_COqfeQUQV--hOKoK1dzD7-ZLNrhBmxU5taqtXTmaL1zf9HgWvMDB23Wlgxo493TCI_fmzxisp4hrXYRNR_K2r6gRjkNUUDQOGui2dtuIB64HgtTXaBITOkBYRKY_wJ-n-cj221CXW7miLo"/>
+<div class="absolute top-sm right-sm bg-tertiary-container text-on-tertiary-container font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                        Apartado
+                    </div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-title-md text-title-md text-on-surface mb-xs text-on-surface/70">Bañera Ergonómica</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow text-on-surface-variant/80">
+                        Bañera con soporte suave y termómetro integrado para la hora del baño.
+                    </p>
+<div class="flex flex-col gap-sm mt-auto">
+<button class="w-full py-sm bg-surface-variant text-on-surface-variant rounded-full font-label-md text-label-md cursor-not-allowed flex justify-center items-center gap-xs" disabled="">
+<span class="material-symbols-outlined text-[18px]">done_all</span>
+                            Regalado con amor
+                        </button>
+<a class="w-full py-sm text-center text-on-surface-variant font-label-md text-label-md hover:underline opacity-70" href="#">
+                            Ver en la tienda
+                        </a>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container mt-xl border-t border-outline-variant w-full">
+<div class="flex flex-col items-center gap-md py-lg px-md w-full text-center max-w-container-max mx-auto">
+<div class="font-headline-lg text-headline-lg text-primary mb-sm">
+                Natalia Juárez
+            </div>
+<div class="flex gap-md flex-wrap justify-center mb-md">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Preguntas Frecuentes</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contacto</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Aviso de Privacidad</a>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+                Con amor, Familia Juárez. 2024
+            </p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center p-xs bg-surface-container-low shadow-[0_-4px_12px_rgba(255,179,0,0.08)] rounded-t-xl pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">card_giftcard</span>
+<span class="font-label-md text-[12px]">Regalos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">chat_bubble</span>
+<span class="font-label-md text-[12px]">Mensajes</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 scale-90 transition-transform shadow-sm" href="#">
+<span class="material-symbols-outlined mb-1 text-[20px]" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+<span class="font-label-md text-[12px]">Lista</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-[12px]">Perfil</span>
+</a>
+</nav>
+</body></html>
