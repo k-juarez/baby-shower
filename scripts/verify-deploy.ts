@@ -7,7 +7,7 @@
  * Usage: npx tsx scripts/verify-deploy.ts
  */
 
-const BASE_URL = 'https://baby-shower-liard-five.vercel.app';
+const BASE_URL = 'https://bs-natalia.vercel.app';
 
 interface CheckResult {
   name: string;
