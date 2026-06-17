@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import ReservationModal from "./ReservationModal";
 
 export interface CatalogItem {
   id: number;
@@ -64,7 +66,9 @@ function StatusBadge({ estado }: { estado: string }) {
 }
 
 export default function CatalogGrid({ items }: CatalogGridProps) {
+  const router = useRouter();
   const [filter, setFilter] = useState<FilterMode>("todos");
+  const [reservingItem, setReservingItem] = useState<CatalogItem | null>(null);
 
   const filteredItems =
     filter === "disponibles"
@@ -153,16 +157,46 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                     href={item.url_elemento}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary-fixed-dim"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary-fixed-dim"
                   >
                     Ver en la tienda →
                   </a>
+                )}
+
+                {/* Yo lo regalo button — only for Disponible items */}
+                {item.estado === "disponible" ? (
+                  <button
+                    type="button"
+                    onClick={() => setReservingItem(item)}
+                    className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-primary-container px-4 py-2.5 text-sm font-semibold text-on-primary-container shadow-sm transition-all hover:bg-primary-fixed-dim hover:shadow-md"
+                    style={{ fontFamily: "var(--font-sans)" }}
+                  >
+                    🐝 Yo lo regalo
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-surface-container px-4 py-2.5 text-sm font-semibold text-on-surface-variant/50 opacity-60"
+                    style={{ fontFamily: "var(--font-sans)" }}
+                  >
+                    🔒 Apartado
+                  </button>
                 )}
               </div>
             </article>
           ))}
         </div>
       )}
+
+      {/* Reservation modal */}
+      <ReservationModal
+        item={reservingItem}
+        onClose={() => {
+          setReservingItem(null);
+          router.refresh();
+        }}
+      />
     </div>
   );
 }

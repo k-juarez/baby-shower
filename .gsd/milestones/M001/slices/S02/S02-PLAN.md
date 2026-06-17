@@ -34,7 +34,7 @@ Upstream surfaces consumed: lib/db.ts (lazy-init SQL helper), app/globals.css (H
   - Files: `app/catalogo/page.tsx`
   - Verify: test -f app/catalogo/page.tsx && grep -q '@/lib/db' app/catalogo/page.tsx && grep -q 'CatalogGrid' app/catalogo/page.tsx
 
-- [ ] **T02: Build CatalogGrid client component with cards and filter** `est:45m`
+- [x] **T02: Created CatalogGrid client component with responsive card grid, image fallback handling, status badge styling, and client-side filter toggle.** `est:45m`
   Create components/CatalogGrid.tsx as a client component ("use client") that receives an items array and renders the responsive gift card grid with a filter toggle. Each card shows the item image (using native <img> with fallback to a honey-themed placeholder div when url_imagen is null or the image fails to load), item name in Quicksand display font, description (que_es) in Open Sans body font, a status badge pill (Disponible: primary-container bg with ✓, Apartado: tertiary-container bg with 🔒), and a "Ver en la tienda →" link that opens url_elemento in a new tab with rel="noopener noreferrer".
   - Files: `components/CatalogGrid.tsx`
   - Verify: test -f components/CatalogGrid.tsx && grep -q 'use client' components/CatalogGrid.tsx && grep -q 'useState' components/CatalogGrid.tsx && grep -q 'grid' components/CatalogGrid.tsx

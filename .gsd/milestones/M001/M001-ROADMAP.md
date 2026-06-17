@@ -16,7 +16,7 @@
 - [x] **S01: Scaffold, DB schema, and Notion seed** `risk:medium` `depends:[]`
   > After this: Next.js project initialized with Tailwind, Neon Postgres connected, schema created, and ~32 items seeded from Notion. Can query items via API route.
 
-- [ ] **S02: Catálogo de regalos con datos reales** `risk:medium` `depends:[S01]`
+- [x] **S02: Catálogo de regalos con datos reales** `risk:medium` `depends:[S01]`
   > After this: Catalog page at `/catalogo` displaying real items from DB in a responsive card grid. Cards show image, name, description, status badge (Disponible/Apartado). Filter toggle for Disponibles/Todos works.
 
 - [ ] **S03: Reserva atómica y confirmación** `risk:high` `depends:[S02]`

@@ -37,6 +37,25 @@
       "label": "T04: Created GET /api/items API route that queries all items from Neon Postgres and returns them as JSON, with try/catch error handling returning 500 on failure.",
       "type": "task",
       "confidence": "EXTRACTED"
+    },
+    {
+      "id": "slice:M001:S02",
+      "label": "S02: Catálogo de regalos con datos reales",
+      "type": "slice",
+      "confidence": "EXTRACTED",
+      "sourceFile": "milestones/M001/slices/S02/S02-PLAN.md"
+    },
+    {
+      "id": "task:M001:S02:T01",
+      "label": "T01: Created /catalogo server-rendered page shell with Neon DB data query, honeycomb header, CatalogGrid passthrough, and empty-state fallback",
+      "type": "task",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "id": "task:M001:S02:T02",
+      "label": "T02: Created CatalogGrid client component with responsive card grid, image fallback handling, status badge styling, and client-side filter toggle.",
+      "type": "task",
+      "confidence": "EXTRACTED"
     }
   ],
   "edges": [
@@ -69,7 +88,25 @@
       "to": "task:M001:S01:T04",
       "type": "contains",
       "confidence": "EXTRACTED"
+    },
+    {
+      "from": "milestone:M001",
+      "to": "slice:M001:S02",
+      "type": "contains",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "from": "slice:M001:S02",
+      "to": "task:M001:S02:T01",
+      "type": "contains",
+      "confidence": "EXTRACTED"
+    },
+    {
+      "from": "slice:M001:S02",
+      "to": "task:M001:S02:T02",
+      "type": "contains",
+      "confidence": "EXTRACTED"
     }
   ],
-  "builtAt": "2026-06-17T22:26:12.180Z"
+  "builtAt": "2026-06-17T22:38:48.508Z"
 }
