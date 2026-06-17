@@ -88,7 +88,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
   return (
     <div className="flex flex-col gap-6">
       {/* Filter toggle — matches Stitch: surface-container-low bg, pill buttons */}
-      <div className="flex rounded-full bg-surface-container-low p-xs shadow-[0_2px_10px_rgba(255,179,0,0.05)]">
+      <div className="flex w-fit rounded-full bg-surface-container-low p-xs shadow-[0_2px_10px_rgba(255,179,0,0.05)]">
         <button
           type="button"
           onClick={() => setFilter("todos")}
