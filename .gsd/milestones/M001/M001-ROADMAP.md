@@ -19,7 +19,7 @@
 - [x] **S02: Catálogo de regalos con datos reales** `risk:medium` `depends:[S01]`
   > After this: Catalog page at `/catalogo` displaying real items from DB in a responsive card grid. Cards show image, name, description, status badge (Disponible/Apartado). Filter toggle for Disponibles/Todos works.
 
-- [ ] **S03: Reserva atómica y confirmación** `risk:high` `depends:[S02]`
+- [x] **S03: Reserva atómica y confirmación** `risk:high` `depends:[S02]`
   > After this: Clicking 'Yo lo regalo' on any Disponible item opens a modal. Guest enters name, confirms, and the reservation is atomic (conditional UPDATE). Confirmation screen shows thank-you message and link to store.
 
 - [ ] **S04: Landing page y pulido visual** `risk:low` `depends:[S02]`

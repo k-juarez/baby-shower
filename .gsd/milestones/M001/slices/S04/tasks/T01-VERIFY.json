@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "taskId": "T01",
+  "unitId": "M001/S04/T01",
+  "timestamp": 1781736959899,
+  "passed": true,
+  "discoverySource": "task-plan",
+  "checks": [
+    {
+      "command": "node --test app/__tests__/landing-page.test.ts",
+      "exitCode": 0,
+      "durationMs": 193,
+      "verdict": "pass"
+    }
+  ]
+}

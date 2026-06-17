@@ -118,21 +118,21 @@ interface StateTransition {
 const happyPath: StateTransition[] = [
   { from: 'idle', action: 'click confirm', to: 'loading' },
   { from: 'loading', action: '200 response', to: 'success' },
-  { from: 'success', action: 'click close', to: 'idle (reset on next open)' },
+  { from: 'success', action: 'click close', to: 'idle' },
 ];
 
 // Expected state transitions for conflict path
 const conflictPath: StateTransition[] = [
   { from: 'idle', action: 'click confirm', to: 'loading' },
   { from: 'loading', action: '409 response', to: 'error' },
-  { from: 'error', action: 'click "Entendido"', to: 'idle (close + reset)' },
+  { from: 'error', action: 'click "Entendido"', to: 'idle' },
 ];
 
 // Expected state transitions for network error
 const networkErrorPath: StateTransition[] = [
   { from: 'idle', action: 'click confirm', to: 'loading' },
   { from: 'loading', action: 'fetch fails', to: 'error' },
-  { from: 'error', active: 'click "Intentar de nuevo"', to: 'idle (retry)' },
+  { from: 'error', action: 'click "Intentar de nuevo"', to: 'idle' },
 ];
 
 function verifyTransition(name: string, transitions: StateTransition[]) {
@@ -144,7 +144,7 @@ function verifyTransition(name: string, transitions: StateTransition[]) {
       allOk = false;
       break;
     }
-    current = t.to.includes('(') ? t.to.split(' ')[0] as ModalView : t.to;
+    current = t.to;
   }
   assert(`${name} state machine (${transitions.length} steps)`, allOk);
 }
