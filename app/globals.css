@@ -72,9 +72,12 @@
   --color-on-background: #1f1b16;
   --color-surface-variant: #e4dfd9;
 
-  /* Ambient shadow color (honey tint) */
+  /* Ambient shadows (honey tint) */
   --color-shadow-amber: rgba(176, 120, 16, 0.08);
   --color-amber: rgba(176, 120, 16, 0.08);
+  --shadow-amber: 0 4px 20px rgba(176, 120, 16, 0.08);
+  --shadow-amber-sm: 0 2px 10px rgba(176, 120, 16, 0.05);
+  --shadow-amber-lg: 0 8px 32px rgba(176, 120, 16, 0.12);
 }
 
 @theme inline {
@@ -146,6 +149,11 @@
   /* Shadow colors */
   --color-shadow-amber: var(--color-shadow-amber);
   --color-amber: var(--color-amber);
+
+  /* Shadows */
+  --shadow-amber: var(--shadow-amber);
+  --shadow-amber-sm: var(--shadow-amber-sm);
+  --shadow-amber-lg: var(--shadow-amber-lg);
 
   /* Rounded corners */
   --radius-sm: 0.25rem;

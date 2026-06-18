@@ -362,7 +362,7 @@ export default function ReservationModal({
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-full max-w-[500px] overflow-hidden rounded-[24px] border border-surface-container bg-surface-container-lowest shadow-amber">
+      <div className="relative w-full max-w-[500px] overflow-hidden rounded-[24px] border border-surface-container bg-surface-container-lowest shadow-amber-lg">
         {/* Honeycomb background */}
         <div
           className="pointer-events-none absolute inset-0 -z-10"
