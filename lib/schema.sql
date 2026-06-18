@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS items (
   url_imagen TEXT,
   url_elemento TEXT,
   estado TEXT NOT NULL DEFAULT 'disponible',
+  tienda TEXT,
+  nombre_corto TEXT,
   reservado_por TEXT,
   creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

@@ -22,6 +22,8 @@ interface NotionItem {
   que_es: string | null;
   url_imagen: string | null;
   url_elemento: string | null;
+  tienda?: string | null;
+  nombre_corto?: string | null;
 }
 
 function extractProperties(page: any): NotionItem | null {
@@ -111,8 +113,8 @@ async function seed() {
   for (const item of allItems) {
     try {
       await sql`
-        INSERT INTO items (nombre, que_es, url_imagen, url_elemento)
-        VALUES (${item.nombre}, ${item.que_es}, ${item.url_imagen}, ${item.url_elemento})
+        INSERT INTO items (nombre, que_es, url_imagen, url_elemento, tienda, nombre_corto)
+        VALUES (${item.nombre}, ${item.que_es}, ${item.url_imagen}, ${item.url_elemento}, ${item.tienda || 'Kinder'}, ${item.nombre_corto || item.nombre})
       `;
       inserted++;
     } catch (err) {

@@ -11,6 +11,8 @@ export interface CatalogItem {
   url_imagen: string | null;
   url_elemento: string | null;
   estado: string;
+  tienda: string | null;
+  nombre_corto: string | null;
 }
 
 interface CatalogGridProps {
@@ -188,15 +190,15 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                 {/* Content */}
                 <div className="flex flex-1 flex-col p-4">
                   <h2 className="text-lg font-bold text-foreground">
-                    {item.nombre}
+                    {item.nombre_corto}
                   </h2>
 
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {item.que_es}
+                    {item.nombre}
                   </p>
 
                   <p className="mt-2 text-xs font-medium text-muted-foreground">
-                    Tienda: {item.nombre}
+                    {item.tienda}
                   </p>
 
                   {/* Actions */}
