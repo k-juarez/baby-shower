@@ -260,7 +260,7 @@ export default function ReservationModal({
           onClick={handleConfirm}
           className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-honey py-3.5 text-base font-semibold text-honey-foreground shadow-[var(--shadow-soft)] transition-all hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          Confirmar que lo regalaré
+          Confirmo mi reserva
         </button>
       </>
     );
@@ -293,9 +293,18 @@ export default function ReservationModal({
           ¡Muchas gracias por tu regalo para Natalia!
         </h2>
         <p className="mx-auto max-w-md text-muted-foreground">
-          Has apartado el regalo con éxito. Tu cariño significa el mundo para
-          nuestra familia en esta dulce espera.
+          Tu cariño tiene un significado especial para nuestra familia.
         </p>
+        {modalItem.tienda === "Kinder" && (
+          <div className="mt-4 rounded-2xl border border-honey/30 bg-honey/5 p-4 text-center">
+            <p className="text-xs font-semibold text-foreground">
+              Nota importante
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Si compras tu regalo en tienda física de Kinder, puedes indicar que es para el evento #4479.
+            </p>
+          </div>
+        )}
         <div className="mt-2 flex w-full flex-col gap-3">
           <a
             href={modalItem.url_elemento ?? "#"}

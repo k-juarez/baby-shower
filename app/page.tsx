@@ -94,19 +94,17 @@ export default function HomePage() {
 
           {/* Heading */}
           <h1 className="mt-6 text-4xl font-bold leading-tight text-foreground sm:text-5xl">
-            Le damos la bienvenida a
-            <br />
-            Natalia{" "}
+            ¡Bienvenida Natalia!
             <span role="img" aria-label="abeja">
-              🐝
+              {" "}🐝
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Estamos felices de esperar a nuestra pequeña abejita. Aquí
-            preparamos una lista de regalos para que elijas el tuyo con cariño
-            y sin repetir lo que otros ya van a regalar.
+            Estamos felices de esperar a nuestra pequeña. Preparamos una lista
+            de regalos para que puedas elegir el tuyo sin que coincida con el
+            de otro ser querido.
           </p>
 
           {/* CTA */}

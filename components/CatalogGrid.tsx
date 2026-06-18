@@ -224,7 +224,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                         className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-honey py-2.5 text-sm font-semibold text-honey-foreground transition-all hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       >
                         <IconGift />
-                        Yo lo regalo
+                        Elijo este regalo
                       </button>
                     )}
 
