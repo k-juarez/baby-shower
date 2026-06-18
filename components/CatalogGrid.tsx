@@ -199,10 +199,13 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
 
                   <p className="mt-1 text-sm text-muted-foreground">
                     {item.nombre}
-                  </p>
-
-                  <p className="mt-2 text-xs font-medium text-muted-foreground">
-                    {item.tienda}
+                    {item.tienda && (
+                      <>
+                        {" "}
+                        <span className="text-xs">·</span>{" "}
+                        <span className="text-xs font-medium">Tienda: {item.tienda}</span>
+                      </>
+                    )}
                   </p>
 
                   {/* Actions */}
