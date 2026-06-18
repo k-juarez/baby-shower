@@ -12,6 +12,7 @@ export interface CatalogItem {
   url_elemento: string | null;
   estado: string;
   tienda: string | null;
+  activo: boolean | null;
   nombre_corto: string | null;
 }
 

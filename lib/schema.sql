@@ -8,5 +8,6 @@ CREATE TABLE IF NOT EXISTS items (
   tienda TEXT,
   nombre_corto TEXT,
   reservado_por TEXT,
+  activo BOOLEAN NOT NULL DEFAULT true,
   creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
