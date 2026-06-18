@@ -9,5 +9,7 @@ CREATE TABLE IF NOT EXISTS items (
   nombre_corto TEXT,
   reservado_por TEXT,
   activo BOOLEAN NOT NULL DEFAULT true,
+  prioridad INTEGER,
+  max_reservas INTEGER,
   creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

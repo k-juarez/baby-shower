@@ -3,7 +3,7 @@ import { sql } from '@/lib/db';
 
 export async function GET() {
   try {
-    const rows = await sql`SELECT * FROM items WHERE activo = true ORDER BY id`;
+    const rows = await sql`SELECT * FROM items WHERE activo = true ORDER BY prioridad ASC NULLS LAST, id`;
     return NextResponse.json({ items: rows });
   } catch (error) {
     const message =

@@ -13,6 +13,8 @@ export interface CatalogItem {
   estado: string;
   tienda: string | null;
   activo: boolean | null;
+  prioridad: number | null;
+  max_reservas: number | null;
   nombre_corto: string | null;
 }
 
