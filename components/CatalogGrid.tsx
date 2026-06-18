@@ -207,7 +207,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                   )}
 
                   {/* Actions */}
-                  <div className="flex flex-col gap-2">
+                  <div className="mt-3 flex flex-col gap-2">
                     {isReserved ? (
                       <button
                         type="button"
