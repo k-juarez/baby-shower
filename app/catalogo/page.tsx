@@ -60,10 +60,7 @@ export default function CatalogoPage() {
               🐝
             </span>
           </h1>
-          <p className="mx-auto mt-2 max-w-lg text-muted-foreground">
-            Aparta el regalo que vas a dar. Así nadie regala lo mismo y todo
-            queda organizado.
-          </p>
+
         </div>
 
         {/* Content */}

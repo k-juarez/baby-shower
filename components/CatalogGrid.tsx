@@ -172,7 +172,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
             return (
               <article
                 key={item.id}
-                className={`flex flex-col overflow-hidden rounded-3xl border bg-card shadow-sm transition-shadow hover:shadow-[var(--shadow-soft)] ${
+                className={`flex flex-col overflow-hidden rounded-3xl bg-card shadow-md transition-shadow hover:shadow-lg ${
                   isReserved ? "opacity-70" : ""
                 }`}
               >
