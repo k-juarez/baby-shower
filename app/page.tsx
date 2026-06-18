@@ -118,8 +118,18 @@ export default function HomePage() {
               Ver catálogo de regalos
             </Link>
           </div>
+
+          {/* Hero image */}
+          <div className="mt-8 w-full overflow-hidden rounded-3xl border bg-card shadow-[var(--shadow-soft)]">
+            <img
+              src="/bee-hero.jpg"
+              alt="Decoración de baby shower con temática de abejas"
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
+
 
       {/* How it works */}
       <div className="px-5 pb-20">
