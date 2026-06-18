@@ -214,7 +214,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                         disabled
                         className="inline-flex w-full cursor-not-allowed items-center justify-center gap-2 whitespace-nowrap rounded-full bg-muted py-2.5 text-sm font-semibold text-muted-foreground"
                       >
-                        Regalado con amor
+                        Reservado
                       </button>
                     ) : (
                       <button
