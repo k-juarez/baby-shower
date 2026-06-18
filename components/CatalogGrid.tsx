@@ -121,11 +121,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
   const filteredItems =
     filter === "disponibles"
       ? items.filter((item) => item.estado === "disponible")
-      : [...items].sort((a, b) => {
-          if (a.estado === 'disponible' && b.estado !== 'disponible') return -1;
-          if (a.estado !== 'disponible' && b.estado === 'disponible') return 1;
-          return 0;
-        });
+      : [...items];
 
   const availableCount = items.filter(
     (i) => i.estado === "disponible",
