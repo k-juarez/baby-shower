@@ -46,8 +46,8 @@
   --destructive-foreground: oklch(99% .02 95);
 
   /* Border / Input */
-  --border: oklch(93% .004 260);
-  --input: oklch(93% .004 260);
+  --border: oklch(96% .001 260);
+  --input: oklch(96% .001 260);
 
   /* Ring */
   --ring: oklch(78% .15 75);

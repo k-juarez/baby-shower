@@ -112,13 +112,17 @@ type FilterMode = "todos" | "disponibles";
 
 export default function CatalogGrid({ items }: CatalogGridProps) {
   const router = useRouter();
-  const [filter, setFilter] = useState<FilterMode>("todos");
+  const [filter, setFilter] = useState<FilterMode>("disponibles");
   const [reservingItem, setReservingItem] = useState<CatalogItem | null>(null);
 
   const filteredItems =
     filter === "disponibles"
       ? items.filter((item) => item.estado === "disponible")
-      : items;
+      : [...items].sort((a, b) => {
+          if (a.estado === 'disponible' && b.estado !== 'disponible') return -1;
+          if (a.estado !== 'disponible' && b.estado === 'disponible') return 1;
+          return 0;
+        });
 
   const availableCount = items.filter(
     (i) => i.estado === "disponible",
