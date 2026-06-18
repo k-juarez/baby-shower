@@ -131,7 +131,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
     <div className="flex flex-col gap-8">
       {/* Filter pills */}
       <div className="flex justify-center">
-        <div className="inline-flex rounded-full border bg-card p-1 shadow-sm">
+        <div className="inline-flex rounded-full bg-card p-1 shadow-sm">
           <button
             type="button"
             onClick={() => setFilter("disponibles")}

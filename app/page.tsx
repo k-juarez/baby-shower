@@ -108,7 +108,7 @@ export default function HomePage() {
           </p>
 
           {/* Hero image */}
-          <div className="mt-8 w-full overflow-hidden rounded-3xl border bg-card shadow-[var(--shadow-soft)]">
+          <div className="mt-8 w-full overflow-hidden rounded-3xl bg-card shadow-[var(--shadow-soft)]">
             <img
               src="/bee-hero.jpg"
               alt="Decoración de baby shower con temática de abejas"
