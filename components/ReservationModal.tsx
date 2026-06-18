@@ -15,6 +15,45 @@ interface ApiError {
   detail: string;
 }
 
+function IconArrowLeft() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m12 19-7-7 7-7" />
+      <path d="M19 12H5" />
+    </svg>
+  );
+}
+
+function IconCheck() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+
 export default function ReservationModal({
   item,
   onClose,
@@ -54,7 +93,7 @@ export default function ReservationModal({
 
   function validateName(name: string): string | null {
     const trimmed = name.trim();
-    if (trimmed.length === 0) return "Tu nombre es obligatorio.";
+    if (trimmed.length === 0) return "Escribe tu nombre para continuar.";
     if (trimmed.length > 100)
       return "El nombre no debe exceder 100 caracteres.";
     return null;
@@ -135,27 +174,28 @@ export default function ReservationModal({
     setRetryTimeout(false);
   }
 
-  // ── Idle View (matches Stitch reserve page) ──
+  // ── Idle View ──
   function renderIdle(): ReactNode {
     return (
-      <div className="flex flex-col gap-md">
-        {/* Header with back button */}
-        <header className="relative flex items-center pb-sm pt-md">
+      <>
+        {/* Header */}
+        <div className="relative flex items-center pb-3 pt-5">
           <button
             type="button"
             onClick={onClose}
-            className="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant transition-colors hover:bg-surface-container-high"
+            className="absolute left-0 flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+            aria-label="Volver al catálogo"
           >
-            <span className="material-symbols-outlined">arrow_back</span>
+            <IconArrowLeft />
           </button>
-          <h1 className="font-title-md text-title-md w-full text-center text-on-surface">
-            Reservar Regalo
+          <h1 className="w-full text-center text-lg font-bold text-foreground">
+            Reservar regalo
           </h1>
-        </header>
+        </div>
 
-        {/* Product summary card */}
-        <section className="flex flex-col gap-md rounded-2xl border border-surface-container bg-surface-container-low p-sm sm:flex-row sm:items-start">
-          <div className="h-28 w-28 shrink-0 overflow-hidden rounded-xl bg-surface shadow-sm">
+        {/* Item preview card */}
+        <section className="flex flex-col gap-4 rounded-2xl border bg-muted/50 p-4 sm:flex-row sm:items-start">
+          <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-muted">
             {modalItem.url_imagen ? (
               <img
                 src={modalItem.url_imagen}
@@ -164,31 +204,29 @@ export default function ReservationModal({
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-3xl">
-                🎁
+                🐝
               </div>
             )}
           </div>
-          <div className="flex flex-1 flex-col justify-center gap-xs py-xs text-center sm:text-left">
-            <span className="font-label-md text-label-md uppercase tracking-wider text-primary">
+          <div className="flex flex-1 flex-col justify-center gap-1 text-center sm:text-left">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {modalItem.que_es}
             </span>
-            <h2 className="font-title-md text-title-md leading-tight text-on-surface">
+            <h2 className="text-base font-bold leading-tight text-foreground">
               {modalItem.nombre}
             </h2>
-            <div className="mt-1 flex items-center justify-center gap-1 text-on-surface-variant sm:justify-start">
-              <span className="material-symbols-outlined text-[16px]">
-                check_circle
-              </span>
-              <span className="text-sm font-body-md">Disponible</span>
+            <div className="mt-1 flex items-center justify-center gap-1 text-available-foreground sm:justify-start">
+              <IconCheck />
+              <span className="text-xs font-bold">Disponible</span>
             </div>
           </div>
         </section>
 
-        {/* Form */}
-        <div className="flex flex-col gap-xs">
+        {/* Name input */}
+        <div className="mt-4 flex flex-col gap-1.5">
           <label
             htmlFor="guest-name"
-            className="font-title-md ml-1 text-[15px] text-on-surface"
+            className="text-sm font-semibold text-foreground"
           >
             Tu nombre
           </label>
@@ -202,108 +240,77 @@ export default function ReservationModal({
             }}
             placeholder="Escribe tu nombre y apellido"
             maxLength={100}
-            className={`w-full rounded-xl border bg-surface-container-lowest px-sm py-3 font-body-md text-body-md text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 ${
+            className={`w-full rounded-xl border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 transition-all focus:outline-none focus:ring-2 ${
               nameError
-                ? "border-error focus:border-error focus:ring-error"
-                : "border-outline-variant focus:border-primary focus:ring-primary"
+                ? "border-destructive focus:ring-destructive/30"
+                : "border-border focus:ring-ring/40"
             }`}
             onKeyDown={(e) => {
               if (e.key === "Enter") handleConfirm();
             }}
           />
           {nameError && (
-            <p className="mt-1 text-xs text-error">{nameError}</p>
+            <p className="text-xs text-destructive">{nameError}</p>
           )}
         </div>
 
-        {/* Info box */}
-        <div className="mt-xs flex items-start gap-sm rounded-xl border border-primary-container/30 bg-primary-container/20 p-sm">
-          <span
-            className="mt-0.5 text-primary"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            <span className="material-symbols-outlined">favorite</span>
-          </span>
-          <p className="font-body-md text-[14px] leading-relaxed text-on-surface-variant">
-            Al confirmar, este regalo se marcará como apartado para que nadie
-            más lo elija. ¡Gracias por tu detalle!
-          </p>
-        </div>
-
         {/* Confirm button */}
-        <div className="pt-sm">
-          <button
-            type="button"
-            onClick={handleConfirm}
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 font-title-md text-title-md text-on-primary shadow-amber transition-all duration-200 hover:-translate-y-0.5 hover:bg-surface-tint active:translate-y-0"
-          >
-            Confirmar que lo regalaré
-            <span className="material-symbols-outlined text-[20px]">
-              volunteer_activism
-            </span>
-          </button>
-        </div>
-      </div>
+        <button
+          type="button"
+          onClick={handleConfirm}
+          className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-honey py-3.5 text-base font-semibold text-honey-foreground shadow-[var(--shadow-soft)] transition-all hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Confirmar que lo regalaré
+        </button>
+      </>
     );
   }
 
   // ── Loading View ──
   function renderLoading(): ReactNode {
     return (
-      <div className="flex flex-col items-center gap-4 py-12 text-center">
-        <div className="flex h-12 w-12 animate-spin items-center justify-center rounded-full border-4 border-primary-container border-t-primary" />
-        <p className="text-on-surface-variant">Apartando tu regalo...</p>
-        {retryTimeout && (
-          <p className="text-sm text-error">
-            Tardando más de lo esperado...
-          </p>
-        )}
+      <div className="flex flex-col items-center gap-4 py-16 text-center">
+        <div className="flex h-10 w-10 animate-spin items-center justify-center rounded-full border-4 border-muted border-t-honey" />
+        <p className="text-muted-foreground">Apartando tu regalo...</p>
       </div>
     );
   }
 
-  // ── Success View (matches Stitch Thank You page) ──
+  // ── Success View ──
   function renderSuccess(): ReactNode {
     return (
-      <div className="flex flex-col items-center gap-4 py-6 text-center">
-        <div className="relative mb-lg inline-block">
-          {/* Glow blob behind */}
-          <div className="absolute inset-0 scale-150 rounded-full bg-primary-container opacity-20 blur-2xl" />
-          {/* Floating bee */}
-          <span className="relative z-10 inline-block animate-[float_4s_ease-in-out_infinite] text-6xl">
+      <div className="flex flex-col items-center gap-4 py-8 text-center">
+        <div className="relative mb-4 inline-block">
+          <div className="absolute inset-0 scale-150 rounded-full bg-honey/15 blur-2xl" />
+          <span
+            className="relative z-10 inline-block text-6xl"
+            style={{ animation: "float 4s ease-in-out infinite" }}
+          >
             🐝
           </span>
         </div>
-        <h2
-          className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-sm"
-        >
+        <h2 className="text-2xl font-bold text-foreground">
           ¡Muchas gracias por tu regalo para Natalia!
         </h2>
-        <p className="font-body-lg text-body-lg mx-auto mb-xl max-w-md text-on-surface-variant">
-          Has apartado el regalo con éxito. Tu cariño y apoyo significan el
-          mundo para nuestra familia en esta dulce espera.
+        <p className="mx-auto max-w-md text-muted-foreground">
+          Has apartado el regalo con éxito. Tu cariño significa el mundo para
+          nuestra familia en esta dulce espera.
         </p>
-        <div className="flex w-full flex-col gap-md">
+        <div className="mt-2 flex w-full flex-col gap-3">
           <a
             href={modalItem.url_elemento ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-xs rounded-full bg-primary py-sm px-md font-label-md text-label-md text-on-primary shadow-sm transition-colors hover:bg-primary-fixed-dim hover:text-on-primary-fixed"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-honey py-3 text-sm font-semibold text-honey-foreground transition-all hover:-translate-y-0.5 hover:brightness-105"
           >
-            <span
-              className="material-symbols-outlined"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              shopping_bag
-            </span>
             Ir a la tienda para comprarlo
           </a>
           <button
             type="button"
             onClick={onClose}
-            className="flex w-full items-center justify-center gap-xs rounded-full bg-secondary-container py-sm px-md font-label-md text-label-md text-on-secondary-container transition-colors hover:bg-secondary-fixed-dim hover:text-on-secondary-fixed-variant"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/80"
           >
-            <span className="material-symbols-outlined">arrow_back</span>
+            <IconArrowLeft />
             Volver al catálogo
           </button>
         </div>
@@ -315,40 +322,40 @@ export default function ReservationModal({
   function renderError(): ReactNode {
     const isConflict = apiError?.includes("acaba de apartar");
     return (
-      <div className="flex flex-col items-center gap-4 py-6 text-center">
+      <div className="flex flex-col items-center gap-4 py-8 text-center">
         <span className="text-5xl">{isConflict ? "🔒" : "😅"}</span>
-        <h2 className="font-headline-lg-mobile text-headline-lg-mobile font-semibold text-on-surface">
+        <h2 className="text-xl font-bold text-foreground">
           {isConflict
             ? "Este regalo ya no está disponible"
             : "Algo salió mal"}
         </h2>
-        <p className="text-on-surface-variant">{apiError}</p>
-        <div className="mt-2 flex w-full flex-col gap-3">
+        <p className="text-muted-foreground">{apiError}</p>
+        <div className="mt-2 flex w-full gap-3">
           {isConflict ? (
             <button
               type="button"
               onClick={onClose}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-primary py-sm px-md font-label-md text-label-md text-on-primary transition-colors"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-honey py-3 text-sm font-semibold text-honey-foreground"
             >
               Entendido
             </button>
           ) : (
-            <div className="flex gap-3">
+            <>
               <button
                 type="button"
                 onClick={handleRetry}
-                className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary py-sm px-md font-label-md text-label-md text-on-primary transition-colors"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-honey py-3 text-sm font-semibold text-honey-foreground"
               >
                 Intentar de nuevo
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="flex flex-1 items-center justify-center gap-2 rounded-full border border-outline bg-surface-container-lowest py-sm px-md font-label-md text-label-md text-on-surface transition-colors hover:bg-surface-container"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-border bg-card py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
               >
                 Cancelar
               </button>
-            </div>
+            </>
           )}
         </div>
       </div>
@@ -362,19 +369,17 @@ export default function ReservationModal({
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-full max-w-[500px] overflow-hidden rounded-[24px] border border-surface-container bg-surface-container-lowest shadow-amber-lg">
-        {/* Honeycomb background */}
+      <div className="relative w-full max-w-[440px] overflow-hidden rounded-[24px] border bg-card shadow-[var(--shadow-soft)]">
+        {/* Honeycomb BG */}
         <div
           className="pointer-events-none absolute inset-0 -z-10"
           style={{
             backgroundImage:
-              "radial-gradient(#e7e1ae 2px, transparent 2px), radial-gradient(#e7e1ae 2px, transparent 2px)",
-            backgroundSize: "32px 32px",
-            backgroundPosition: "0 0, 16px 16px",
-            opacity: 0.3,
+              "radial-gradient(color-mix(in oklab, var(--honey) 8%, transparent) 1.5px, transparent 1.6px)",
+            backgroundSize: "22px 22px",
           }}
         />
-        <div className="px-md pb-md">
+        <div className="px-5 pb-5">
           {view === "idle" && renderIdle()}
           {view === "loading" && renderLoading()}
           {view === "success" && renderSuccess()}

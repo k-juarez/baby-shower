@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
-import { Quicksand, Open_Sans } from "next/font/google";
+import { Fredoka, Nunito } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
-const quicksand = Quicksand({
+const fredoka = Fredoka({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const openSans = Open_Sans({
+const nunito = Nunito({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Baby Shower de Natalia",
+  title: {
+    default: "Baby Shower de Natalia 🐝",
+    template: "%s | Baby Shower de Natalia 🐝",
+  },
   description:
-    "Registro de regalos para la llegada de Natalia — Little Honey Bee",
+    "Lista de regalos para la llegada de Natalia. Elige el tuyo con cariño y sin repetir.",
 };
 
 export default function RootLayout({
@@ -30,20 +32,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${quicksand.variable} ${openSans.variable} h-full antialiased`}
+      className={`${fredoka.variable} ${nunito.variable} h-full antialiased`}
     >
-      <head>
-        {/* Material Symbols */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="flex min-h-full flex-col font-body-md text-on-surface">
-        <NavBar />
-        <main className="flex flex-1 flex-col">{children}</main>
-        <Footer />
-      </body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

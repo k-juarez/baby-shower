@@ -1,11 +1,22 @@
 export default function Footer() {
   return (
-    <footer className="mt-xl w-full border-t border-outline-variant bg-surface-container">
-      <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center px-md py-lg text-center">
-        <p className="font-body-md text-body-md text-secondary">
-          Con amor, Familia Juárez. 2025
-        </p>
-      </div>
+    <footer className="mt-auto flex items-center justify-center gap-2 pb-8 pt-12 text-center text-sm text-muted-foreground">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="text-honey"
+        aria-hidden="true"
+      >
+        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+      </svg>
+      <span>Gracias por acompañarnos en esta dulce espera</span>
     </footer>
   );
 }
