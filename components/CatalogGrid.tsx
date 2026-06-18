@@ -196,7 +196,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                     {item.nombre_corto}
                   </h2>
 
-                  <p className="mt-1 text-sm text-muted-foreground">
+                  <p className="mt-1 flex-1 text-sm text-muted-foreground">
                     {item.nombre}
                   </p>
 
