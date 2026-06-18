@@ -1,116 +1,162 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Baby Shower de Natalia — Little Honey Bee",
-  description:
-    "Mesa de regalos para la llegada de Natalia. Explora nuestro catálogo, aparta tu regalo y celebra con nosotros la llegada de la Little Honey Bee.",
-};
+function IconSearch() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+  );
+}
+
+function IconHeart() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    </svg>
+  );
+}
+
+function IconShoppingBag() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+      <path d="M3 6h18" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  );
+}
 
 const steps = [
   {
-    emoji: "🔍",
+    number: "1",
     title: "Explora",
-    description:
-      "Navega por nuestro catálogo de regalos preparados con cariño para la llegada de Natalia.",
+    description: "Mira los regalos que nos encantaría recibir.",
+    icon: <IconSearch />,
   },
   {
-    emoji: "💛",
-    title: "Aparta",
-    description:
-      "Elige el regalo que más te guste y apártalo para que nadie más lo reserve.",
+    number: "2",
+    title: "Apártalo",
+    description: 'Toca «Yo lo regalo» y escribe tu nombre.',
+    icon: <IconHeart />,
   },
   {
-    emoji: "🎁",
-    title: "Compra",
-    description:
-      "Recibe los datos para completar tu regalo. ¡Gracias por ser parte de este momento!",
+    number: "3",
+    title: "Cómpralo",
+    description: "Te llevamos a la tienda para completar la compra.",
+    icon: <IconShoppingBag />,
   },
 ];
 
 export default function HomePage() {
   return (
-    <div className="flex flex-1 flex-col">
-      {/* Hero section */}
-      <div className="bg-honeycomb border-b border-outline-variant/40">
-        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-6 px-6 py-16 text-center sm:py-24">
-          {/* Decorative bee emojis */}
-          <div className="flex gap-3 text-3xl sm:text-4xl" aria-hidden="true">
-            <span>🐝</span>
-            <span>🌸</span>
-            <span>🐝</span>
+    <div className="honeycomb-bg flex min-h-screen flex-col">
+      {/* Hero */}
+      <div className="flex flex-1 flex-col items-center justify-center px-5 pb-20 pt-10 sm:pt-16">
+        <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-accent-foreground">
+            🐝 Baby shower
           </div>
 
-          <h1
-            className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Baby Shower de Natalia
+          {/* Heading */}
+          <h1 className="mt-6 text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+            Le damos la bienvenida a
+            <br />
+            Natalia{" "}
+            <span role="img" aria-label="abeja">
+              🐝
+            </span>
           </h1>
 
-          <p
-            className="text-lg font-semibold text-on-primary-container sm:text-xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Little Honey Bee 🍯
+          {/* Subtitle */}
+          <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
+            Estamos felices de esperar a nuestra pequeña abejita. Aquí
+            preparamos una lista de regalos para que elijas el tuyo con cariño
+            y sin repetir lo que otros ya van a regalar.
           </p>
 
-          <p
-            className="max-w-2xl text-on-surface-variant sm:text-lg"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
-            Estamos celebrando la llegada de nuestra pequeña Natalia y queremos
-            que nos acompañes en este momento tan especial. Hemos preparado una
-            mesa de regalos con mucho cariño para que puedas elegir el detalle
-            perfecto para ella. ¡Cada regalo es una bienvenida llena de amor!
-          </p>
-
-          <Link
-            href="/catalogo"
-            className="inline-block rounded-full bg-primary px-8 py-3 text-lg font-semibold text-on-primary shadow-lg transition-all hover:bg-primary-fixed-dim hover:text-on-primary-fixed hover:shadow-xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Ver catálogo de regalos 🎀
-          </Link>
-        </div>
-      </div>
-
-      {/* How it works section */}
-      <div className="mx-auto w-full max-w-[1200px] px-6 py-16 sm:py-20">
-        <h2
-          className="mb-10 text-center text-3xl font-bold text-primary sm:text-4xl"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          ¿Cómo funciona?
-        </h2>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {steps.map((step) => (
-            <div
-              key={step.title}
-              className="flex flex-col items-center gap-4 rounded-xl bg-surface-container-low p-8 text-center shadow-amber transition-shadow hover:shadow-lg"
+          {/* CTA */}
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/catalogo"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-honey px-8 py-3 text-base font-semibold text-honey-foreground transition-all hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <span className="text-5xl" aria-hidden="true">
-                {step.emoji}
-              </span>
-              <h3
-                className="text-xl font-semibold text-on-surface"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {step.title}
-              </h3>
-              <p
-                className="text-on-surface-variant"
-                style={{ fontFamily: "var(--font-sans)" }}
-              >
-                {step.description}
-              </p>
-            </div>
-          ))}
+              Ver catálogo de regalos
+            </Link>
+          </div>
         </div>
       </div>
 
+      {/* How it works */}
+      <div className="px-5 pb-20">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center text-2xl font-bold text-foreground">
+            ¿Cómo funciona?
+          </h2>
 
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {steps.map((step) => (
+              <div
+                key={step.number}
+                className="rounded-2xl border bg-card p-5 text-center shadow-sm"
+              >
+                {/* Numbered circle */}
+                <div className="mx-auto grid size-12 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <span className="text-lg font-bold">{step.number}</span>
+                </div>
+
+                <h3 className="mt-3 text-lg font-bold text-foreground">
+                  {step.title}
+                </h3>
+
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-12 flex items-center justify-center gap-2 pb-8 text-center text-sm text-muted-foreground">
+        <IconHeart />
+        <span>Gracias por acompañarnos en esta dulce espera</span>
+      </div>
     </div>
   );
 }

@@ -1,195 +1,112 @@
 @import "tailwindcss";
 
-/* ── Miel Suave — Baby Shower de Natalia 🐝🍯 ── */
+/* ── Baby Shower de Natalia 🐝🍯 ── */
 
 :root {
-  /* Surface colors (warm white series) */
-  --color-surface: #fefaf5;
-  --color-surface-dim: #ddd8d2;
-  --color-surface-bright: #fefaf5;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f5f1ec;
-  --color-surface-container: #f0ebe5;
-  --color-surface-container-high: #eae5df;
-  --color-surface-container-highest: #e4dfd9;
+  --radius: 1.25rem;
 
-  /* On-surface / text */
-  --color-on-surface: #1f1b16;
-  --color-on-surface-variant: #5c4a3a;
-  --color-inverse-surface: #302a24;
-  --color-inverse-on-surface: #f2ede8;
+  /* Background / Foreground */
+  --background: oklch(99% .018 95);
+  --foreground: oklch(34% .045 70);
 
-  /* Outline */
-  --color-outline: #8a7560;
-  --color-outline-variant: #d6ccb8;
-  --color-surface-tint: #b07810;
+  /* Card */
+  --card: oklch(100% .006 95);
+  --card-foreground: oklch(34% .045 70);
 
-  /* Primary (Honey Gold) */
-  --color-primary: #b07810;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #fde0a4;
-  --color-on-primary-container: #5c3a00;
-  --color-inverse-primary: #f0c878;
+  /* Popover */
+  --popover: oklch(100% .006 95);
+  --popover-foreground: oklch(34% .045 70);
 
-  /* Secondary (Warm Tan) */
-  --color-secondary: #8a6a3a;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #f5e6cc;
-  --color-on-secondary-container: #5a3a10;
+  /* Primary — golden honey */
+  --primary: oklch(86% .135 90);
+  --primary-foreground: oklch(34% .06 65);
 
-  /* Tertiary (Soft Rose) */
-  --color-tertiary: #8a4a5a;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #f0d4dc;
-  --color-on-tertiary-container: #5a2a3a;
+  /* Secondary */
+  --secondary: oklch(95% .03 92);
+  --secondary-foreground: oklch(40% .05 70);
 
-  /* Error */
-  --color-error: #ba1a1a;
-  --color-on-error: #ffffff;
-  --color-error-container: #ffdad6;
-  --color-on-error-container: #93000a;
+  /* Muted */
+  --muted: oklch(96% .02 92);
+  --muted-foreground: oklch(55% .035 75);
 
-  /* Primary fixed */
-  --color-primary-fixed: #fde0a4;
-  --color-primary-fixed-dim: #f0c878;
-  --color-on-primary-fixed: #2d1800;
-  --color-on-primary-fixed-variant: #5c3a00;
+  /* Accent */
+  --accent: oklch(93% .06 88);
+  --accent-foreground: oklch(38% .06 65);
 
-  /* Secondary fixed */
-  --color-secondary-fixed: #f5e6cc;
-  --color-secondary-fixed-dim: #e0cca8;
-  --color-on-secondary-fixed: #1f1500;
-  --color-on-secondary-fixed-variant: #5a3a10;
+  /* Honey — call-to-action button */
+  --honey: oklch(78% .15 75);
+  --honey-foreground: oklch(99% .02 95);
 
-  /* Tertiary fixed */
-  --color-tertiary-fixed: #f5dce4;
-  --color-tertiary-fixed-dim: #e8c8d4;
-  --color-on-tertiary-fixed: #2d0a15;
-  --color-on-tertiary-fixed-variant: #5a2a3a;
+  /* Available — green success badge */
+  --available: oklch(82% .11 145);
+  --available-foreground: oklch(34% .07 145);
 
-  /* Aliases */
-  --color-background: #fefaf5;
-  --color-on-background: #1f1b16;
-  --color-surface-variant: #e4dfd9;
+  /* Destructive */
+  --destructive: oklch(62% .21 27);
+  --destructive-foreground: oklch(99% .02 95);
 
-  /* Ambient shadows (honey tint) */
-  --color-shadow-amber: rgba(176, 120, 16, 0.08);
-  --color-amber: rgba(176, 120, 16, 0.08);
-  --shadow-amber: 0 4px 20px rgba(176, 120, 16, 0.08);
-  --shadow-amber-sm: 0 2px 10px rgba(176, 120, 16, 0.05);
-  --shadow-amber-lg: 0 8px 32px rgba(176, 120, 16, 0.12);
+  /* Border / Input */
+  --border: oklch(90% .03 90);
+  --input: oklch(90% .03 90);
+
+  /* Ring */
+  --ring: oklch(78% .15 75);
+
+  /* Shadow — honey-tinted soft lift */
+  --shadow-soft: 0 8px 30px -12px color-mix(in oklab, var(--honey) 45%, transparent);
+
+  /* Fonts */
+  --font-display: "Fredoka", sans-serif;
+  --font-sans: "Nunito", sans-serif;
 }
 
 @theme inline {
-  /* Surface palette */
-  --color-surface: var(--color-surface);
-  --color-surface-dim: var(--color-surface-dim);
-  --color-surface-bright: var(--color-surface-bright);
-  --color-surface-container-lowest: var(--color-surface-container-lowest);
-  --color-surface-container-low: var(--color-surface-container-low);
-  --color-surface-container: var(--color-surface-container);
-  --color-surface-container-high: var(--color-surface-container-high);
-  --color-surface-container-highest: var(--color-surface-container-highest);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-honey: var(--honey);
+  --color-honey-foreground: var(--honey-foreground);
+  --color-available: var(--available);
+  --color-available-foreground: var(--available-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
-  /* On-surface */
-  --color-on-surface: var(--color-on-surface);
-  --color-on-surface-variant: var(--color-on-surface-variant);
-  --color-inverse-surface: var(--color-inverse-surface);
-  --color-inverse-on-surface: var(--color-inverse-on-surface);
+  --shadow-soft: var(--shadow-soft);
 
-  /* Outline */
-  --color-outline: var(--color-outline);
-  --color-outline-variant: var(--color-outline-variant);
-  --color-surface-tint: var(--color-surface-tint);
-
-  /* Primary */
-  --color-primary: var(--color-primary);
-  --color-on-primary: var(--color-on-primary);
-  --color-primary-container: var(--color-primary-container);
-  --color-on-primary-container: var(--color-on-primary-container);
-  --color-inverse-primary: var(--color-inverse-primary);
-
-  /* Secondary */
-  --color-secondary: var(--color-secondary);
-  --color-on-secondary: var(--color-on-secondary);
-  --color-secondary-container: var(--color-secondary-container);
-  --color-on-secondary-container: var(--color-on-secondary-container);
-
-  /* Tertiary */
-  --color-tertiary: var(--color-tertiary);
-  --color-on-tertiary: var(--color-on-tertiary);
-  --color-tertiary-container: var(--color-tertiary-container);
-  --color-on-tertiary-container: var(--color-on-tertiary-container);
-
-  /* Error */
-  --color-error: var(--color-error);
-  --color-on-error: var(--color-on-error);
-  --color-error-container: var(--color-error-container);
-  --color-on-error-container: var(--color-on-error-container);
-
-  /* Background aliases */
-  --color-background: var(--color-background);
-  --color-on-background: var(--color-on-background);
-  --color-surface-variant: var(--color-surface-variant);
-
-  /* Fixed colors */
-  --color-primary-fixed: var(--color-primary-fixed);
-  --color-primary-fixed-dim: var(--color-primary-fixed-dim);
-  --color-on-primary-fixed: var(--color-on-primary-fixed);
-  --color-on-primary-fixed-variant: var(--color-on-primary-fixed-variant);
-  --color-secondary-fixed: var(--color-secondary-fixed);
-  --color-secondary-fixed-dim: var(--color-secondary-fixed-dim);
-  --color-on-secondary-fixed: var(--color-on-secondary-fixed);
-  --color-on-secondary-fixed-variant: var(--color-on-secondary-fixed-variant);
-  --color-tertiary-fixed: var(--color-tertiary-fixed);
-  --color-tertiary-fixed-dim: var(--color-tertiary-fixed-dim);
-  --color-on-tertiary-fixed: var(--color-on-tertiary-fixed);
-  --color-on-tertiary-fixed-variant: var(--color-on-tertiary-fixed-variant);
-
-  /* Shadow colors */
-  --color-shadow-amber: var(--color-shadow-amber);
-  --color-amber: var(--color-amber);
-
-  /* Shadows */
-  --shadow-amber: var(--shadow-amber);
-  --shadow-amber-sm: var(--shadow-amber-sm);
-  --shadow-amber-lg: var(--shadow-amber-lg);
-
-  /* Rounded corners */
-  --radius-sm: 0.25rem;
-  --radius-default: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-full: 9999px;
-
-  /* Typography */
-  --font-sans: "Open Sans", sans-serif;
-  --font-display: "Quicksand", sans-serif;
-
-  /* Spacing */
-  --spacing-base: 8px;
-  --spacing-xs: 4px;
-  --spacing-sm: 12px;
-  --spacing-md: 24px;
-  --spacing-lg: 48px;
-  --spacing-xl: 80px;
-  --spacing-container-max: 1200px;
-  --spacing-gutter: 24px;
+  --font-sans: "Nunito", sans-serif;
+  --font-display: "Fredoka", sans-serif;
 }
 
 /* ── Base styles ── */
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-on-surface);
-  font-family: "Open Sans", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Honeycomb pattern utility ── */
-.bg-honeycomb {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 28 49'%3E%3Cpath fill='%23f5f5dc' fill-opacity='0.4' d='M13.99 9.25l13 7.5v15l-13 7.5-13-7.5v-15l13-7.5zM28 25v-8.5l-14.01-8.5L0 16.5V25l14 8.5 14-8.5z'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+/* ── Honeycomb dot pattern ── */
+.honeycomb-bg {
+  background-color: var(--background);
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--honey) 12%, transparent) 1.5px,
+    transparent 1.6px
+  );
+  background-size: 22px 22px;
 }
