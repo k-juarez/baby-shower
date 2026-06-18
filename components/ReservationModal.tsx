@@ -312,7 +312,7 @@ export default function ReservationModal({
             rel="noopener noreferrer"
             className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-honey py-3 text-sm font-semibold text-honey-foreground transition-all hover:-translate-y-0.5 hover:brightness-105"
           >
-            Ir a la tienda para comprarlo
+            Link para comprarlo
           </a>
           <button
             type="button"

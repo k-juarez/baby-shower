@@ -236,7 +236,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                         className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full py-2.5 text-xs font-semibold text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       >
                         <IconExternalLink />
-                        Ver en la tienda
+                        Link para comprarlo
                       </a>
                     )}
                   </div>
