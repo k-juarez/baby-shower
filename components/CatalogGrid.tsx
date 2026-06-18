@@ -199,14 +199,13 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
 
                   <p className="mt-1 text-sm text-muted-foreground">
                     {item.nombre}
-                    {item.tienda && (
-                      <>
-                        {" "}
-                        <span className="text-xs">·</span>{" "}
-                        <span className="text-xs font-medium">Tienda: {item.tienda}</span>
-                      </>
-                    )}
                   </p>
+
+                  {item.tienda && (
+                    <p className="mt-2 text-xs font-medium text-muted-foreground">
+                      Tienda: {item.tienda}
+                    </p>
+                  )}
 
                   {/* Actions */}
                   <div className="mt-auto flex flex-col gap-2">
