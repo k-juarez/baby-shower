@@ -88,7 +88,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
   return (
     <div className="flex flex-col gap-6">
       {/* Filter toggle — matches Stitch: surface-container-low bg, pill buttons */}
-      <div className="flex w-fit rounded-full bg-surface-container-low p-xs shadow-amber">
+      <div className="flex w-fit rounded-full bg-surface-container-low p-xs shadow-amber-sm">
         <button
           type="button"
           onClick={() => setFilter("todos")}
@@ -225,13 +225,15 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
       )}
 
       {/* Reservation modal */}
-      <ReservationModal
-        item={reservingItem}
-        onClose={() => {
-          setReservingItem(null);
-          router.refresh();
-        }}
-      />
+      {reservingItem && (
+        <ReservationModal
+          item={reservingItem}
+          onClose={() => {
+            setReservingItem(null);
+            router.refresh();
+          }}
+        />
+      )}
     </div>
   );
 }
