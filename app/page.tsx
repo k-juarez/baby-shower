@@ -70,13 +70,13 @@ const steps = [
   {
     number: "2",
     title: "Apártalo",
-    description: 'Toca «Yo lo regalo» y escribe tu nombre.',
+    description: 'Toca «Elijo este regalo» y escribe tu nombre.',
     icon: <IconHeart />,
   },
   {
     number: "3",
     title: "Cómpralo",
-    description: "Te llevamos a la tienda para completar la compra.",
+    description: 'Te dejamos el link de la tienda o detalle para conseguirlo.',
     icon: <IconShoppingBag />,
   },
 ];
@@ -158,6 +158,16 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="flex justify-center px-5 pb-4">
+        <Link
+          href="/catalogo"
+          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-honey px-8 py-3 text-base font-semibold text-honey-foreground transition-all hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Vamos
+        </Link>
       </div>
 
       {/* Footer */}
