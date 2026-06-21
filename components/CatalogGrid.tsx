@@ -123,10 +123,6 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
       ? items.filter((item) => item.estado === "disponible")
       : [...items];
 
-  const availableCount = items.filter(
-    (i) => i.estado === "disponible",
-  ).length;
-
   return (
     <div className="flex flex-col gap-8">
       {/* Filter pills */}
@@ -141,7 +137,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            Disponibles ({availableCount})
+            Disponibles
           </button>
           <button
             type="button"
@@ -152,7 +148,7 @@ export default function CatalogGrid({ items }: CatalogGridProps) {
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
-            Todos ({items.length})
+            Todos
           </button>
         </div>
       </div>
