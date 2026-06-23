@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS items (
   activo BOOLEAN NOT NULL DEFAULT true,
   prioridad INTEGER,
   max_reservas INTEGER,
+  precio_q DECIMAL(10,2),
   creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
