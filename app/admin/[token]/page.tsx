@@ -12,6 +12,11 @@ interface ReservationRow {
   reservado_por: string;
 }
 
+interface FlatRow {
+  guest: string;
+  item: ReservationRow;
+}
+
 export default async function AdminPage({
   params,
 }: {
@@ -45,40 +50,47 @@ export default async function AdminPage({
 
     reservations = rows;
   } catch (e) {
-    error = e instanceof Error ? e.message : "Error al consultar la base de datos";
+    error =
+      e instanceof Error ? e.message : "Error al consultar la base de datos";
   }
 
-  // Flatten multi-name reservations into individual rows
-  const flat: Array<{ guest: string; item: ReservationRow }> = [];
+  // Flatten multi-name reservations and sort by guest name
+  const flat: FlatRow[] = [];
   for (const item of reservations) {
-    const names = item.reservado_por.split(",").map((n) => n.trim()).filter(Boolean);
+    const names = item.reservado_por
+      .split(",")
+      .map((n) => n.trim())
+      .filter(Boolean);
     for (const name of names) {
       flat.push({ guest: name, item });
     }
   }
+  flat.sort((a, b) => a.guest.localeCompare(b.guest, "es"));
 
-  // Group by guest
-  const byGuest = new Map<string, ReservationRow[]>();
-  for (const { guest, item } of flat) {
-    const existing = byGuest.get(guest) || [];
-    existing.push(item);
-    byGuest.set(guest, existing);
+  // Assign alternating guest group for visual striping
+  let guestIndex = 0;
+  let prevGuest = "";
+  const rows: Array<FlatRow & { group: number }> = [];
+  for (const row of flat) {
+    if (row.guest !== prevGuest) {
+      prevGuest = row.guest;
+      guestIndex++;
+    }
+    rows.push({ ...row, group: guestIndex });
   }
 
-  const guests = Array.from(byGuest.entries()).sort(([a], [b]) =>
-    a.localeCompare(b, "es"),
-  );
+  const guestCount = guestIndex;
 
   return (
     <div className="min-h-screen bg-background">
       <div className="mx-auto max-w-4xl px-4 py-10">
-        <header className="mb-10 text-center">
+        <header className="mb-8 text-center">
           <h1 className="font-display text-3xl font-bold text-foreground">
             🐝 Panel de Regalos
           </h1>
           <p className="mt-2 text-muted-foreground">
-            {flat.length} reserva{flat.length !== 1 ? "s" : ""} de {guests.length} invitado
-            {guests.length !== 1 ? "s" : ""}
+            {flat.length} reserva{flat.length !== 1 ? "s" : ""} &middot;{" "}
+            {guestCount} invitado{guestCount !== 1 ? "s" : ""}
           </p>
         </header>
 
@@ -94,109 +106,88 @@ export default async function AdminPage({
             </p>
           </div>
         ) : (
-          <div className="flex flex-col gap-8">
-            {guests.map(([guest, items]) => (
-              <section
-                key={guest}
-                className="overflow-hidden rounded-3xl bg-card shadow-sm"
-              >
-                <div className="border-b border-muted bg-accent/30 px-6 py-4">
-                  <h2 className="font-display text-lg font-bold text-foreground">
-                    {guest}
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    {items.length} regalo{items.length !== 1 ? "s" : ""} reservado
-                    {items.length !== 1 ? "s" : ""}
-                  </p>
-                </div>
+          <div className="overflow-hidden rounded-3xl bg-card shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-muted text-xs uppercase text-muted-foreground">
+                    <th className="px-6 py-3 font-semibold">Invitado</th>
+                    <th className="px-6 py-3 font-semibold">Regalo</th>
+                    <th className="px-6 py-3 font-semibold">Tienda</th>
+                    <th className="px-6 py-3 font-semibold">Link</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map(({ guest, item, group }) => (
+                    <tr
+                      key={`${guest}-${item.id}`}
+                      className={`border-b border-muted/60 transition-colors hover:bg-muted/60 ${
+                        group % 2 === 0 ? "bg-muted/20" : ""
+                      }`}
+                    >
+                      <td className="px-6 py-3">
+                        <span className="font-semibold text-foreground">
+                          {guest}
+                        </span>
+                      </td>
 
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-sm">
-                    <thead>
-                      <tr className="border-b border-muted text-xs uppercase text-muted-foreground">
-                        <th className="px-6 py-3 font-semibold">Regalo</th>
-                        <th className="px-6 py-3 font-semibold">Tienda</th>
-                        <th className="px-6 py-3 font-semibold">Link</th>
-                        <th className="px-6 py-3 font-semibold">Estado</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {items.map((item) => (
-                        <tr
-                          key={`${guest}-${item.id}`}
-                          className="border-b border-muted transition-colors hover:bg-muted/50"
-                        >
-                          <td className="px-6 py-3">
-                            <p className="font-semibold text-foreground">
-                              {item.nombre_corto}
-                            </p>
-                            {item.nombre !== item.nombre_corto && (
-                              <p className="text-xs text-muted-foreground">
-                                {item.nombre}
-                              </p>
-                            )}
-                          </td>
+                      <td className="px-6 py-3">
+                        <p className="font-semibold text-foreground">
+                          {item.nombre_corto}
+                        </p>
+                        {item.nombre !== item.nombre_corto && (
+                          <p className="text-xs text-muted-foreground">
+                            {item.nombre}
+                          </p>
+                        )}
+                      </td>
 
-                          <td className="whitespace-nowrap px-6 py-3 text-muted-foreground">
-                            {item.tienda || "—"}
-                          </td>
+                      <td className="whitespace-nowrap px-6 py-3 text-muted-foreground">
+                        {item.tienda || "—"}
+                      </td>
 
-                          <td className="px-6 py-3">
-                            {item.url_elemento ? (
-                              <a
-                                href={item.url_elemento}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 whitespace-nowrap text-xs font-semibold text-honey underline-offset-2 hover:underline"
-                              >
-                                Comprar
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="12"
-                                  height="12"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  aria-hidden="true"
-                                >
-                                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                  <polyline points="15 3 21 3 21 9" />
-                                  <line x1="10" y1="14" x2="21" y2="3" />
-                                </svg>
-                              </a>
-                            ) : (
-                              <span className="text-xs text-muted-foreground">
-                                —
-                              </span>
-                            )}
-                          </td>
-
-                          <td className="whitespace-nowrap px-6 py-3">
-                            <span
-                              className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold ${
-                                item.estado === "apartado"
-                                  ? "bg-available text-available-foreground"
-                                  : "bg-muted text-muted-foreground"
-                              }`}
+                      <td className="px-6 py-3">
+                        {item.url_elemento ? (
+                          <a
+                            href={item.url_elemento}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-honey/10 px-3 py-1 text-xs font-semibold text-honey transition-colors hover:bg-honey/20"
+                          >
+                            Comprar
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="12"
+                              height="12"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              aria-hidden="true"
                             >
-                              {item.estado === "apartado" ? "Apartado" : item.estado}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </section>
-            ))}
+                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                              <polyline points="15 3 21 3 21 9" />
+                              <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                          </a>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">
+                            —
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
 
-        <footer className="mt-12 text-center text-xs text-muted-foreground">
-          Panel administrativo — Baby Shower de Natalia 🐝
+        <footer className="mt-10 text-center text-xs text-muted-foreground">
+          Panel administrativo &middot; Baby Shower de Natalia 🐝
         </footer>
       </div>
     </div>
