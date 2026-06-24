@@ -10,6 +10,12 @@ interface ReservationRow {
   url_elemento: string | null;
   estado: string;
   reservado_por: string;
+  precio_q: number | null;
+}
+
+function formatPrice(n: number): string {
+  const v = Number(n);
+  return v % 1 === 0 ? `Q${v}` : `Q${v.toFixed(2)}`;
 }
 
 interface FlatRow {
@@ -19,10 +25,14 @@ interface FlatRow {
 
 export default async function AdminPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ token: string }>;
+  searchParams: Promise<{ showPrices?: string }>;
 }) {
   const { token } = await params;
+  const { showPrices } = await searchParams;
+  const showPriceBadge = showPrices === "true";
 
   if (token !== VALID_TOKEN) {
     return (
@@ -42,7 +52,7 @@ export default async function AdminPage({
 
   try {
     const rows = (await sql`
-      SELECT id, nombre_corto, nombre, tienda, url_elemento, estado, reservado_por
+      SELECT id, nombre_corto, nombre, tienda, url_elemento, estado, reservado_por, precio_q
       FROM items
       WHERE reservado_por IS NOT NULL AND reservado_por != '' AND activo = true
       ORDER BY id
@@ -132,11 +142,18 @@ export default async function AdminPage({
                       </td>
 
                       <td className="px-6 py-3">
-                        <p className="font-semibold text-foreground">
-                          {item.nombre_corto}
-                        </p>
+                        <div className="flex items-center gap-2">
+                          <p className="font-semibold text-foreground">
+                            {item.nombre_corto}
+                          </p>
+                          {showPriceBadge && item.precio_q != null && (
+                            <span className="inline-flex items-center whitespace-nowrap rounded-full bg-emerald-100 px-2 py-0.5 text-[11px] font-semibold text-emerald-800">
+                              {formatPrice(item.precio_q)}
+                            </span>
+                          )}
+                        </div>
                         {item.nombre !== item.nombre_corto && (
-                          <p className="text-xs text-muted-foreground">
+                          <p className="mt-0.5 text-xs text-muted-foreground">
                             {item.nombre}
                           </p>
                         )}
